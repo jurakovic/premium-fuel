@@ -1,0 +1,270 @@
+[
+    {
+        "name": "Baderna",
+        "url": "https://www.ina.hr/station/baderna/"
+    },
+    {
+        "name": "Biograd na Moru-Zagrebačka",
+        "url": "https://www.ina.hr/station/biograd-na-moru-zagrebacka/"
+    },
+    {
+        "name": "Bol",
+        "url": "https://www.ina.hr/station/bol/"
+    },
+    {
+        "name": "Buzet",
+        "url": "https://www.ina.hr/station/buzet/"
+    },
+    {
+        "name": "Čakovec-Zrinsko-Frankopanska",
+        "url": "https://www.ina.hr/station/cakovec-zrinsko-frankopanska/"
+    },
+    {
+        "name": "Cres-marina",
+        "url": "https://www.ina.hr/station/cres-marina/"
+    },
+    {
+        "name": "Donji Miholjac-jug",
+        "url": "https://www.ina.hr/station/donji-miholjac-jug/"
+    },
+    {
+        "name": "Dubrovnik-grad",
+        "url": "https://www.ina.hr/station/dubrovnik-grad/"
+    },
+    {
+        "name": "Galižana-zapad",
+        "url": "https://www.ina.hr/station/galizana-zapad/"
+    },
+    {
+        "name": "Hvar",
+        "url": "https://www.ina.hr/station/hvar/"
+    },
+    {
+        "name": "Jezera-marina",
+        "url": "https://www.ina.hr/station/jezera-marina/"
+    },
+    {
+        "name": "Kaldanija",
+        "url": "https://www.ina.hr/station/kaldanija/"
+    },
+    {
+        "name": "Kozjak-jug",
+        "url": "https://www.ina.hr/station/kozjak-jug/"
+    },
+    {
+        "name": "Kozjak-sjever",
+        "url": "https://www.ina.hr/station/kozjak-sjever/"
+    },
+    {
+        "name": "Kupari",
+        "url": "https://www.ina.hr/station/kupari/"
+    },
+    {
+        "name": "Kutina-Krešimirova",
+        "url": "https://www.ina.hr/station/kutina-kresimirova/"
+    },
+    {
+        "name": "Lepenica",
+        "url": "https://www.ina.hr/station/lepenica/"
+    },
+    {
+        "name": "Makarska-Ratac",
+        "url": "https://www.ina.hr/station/makarska-ratac/"
+    },
+    {
+        "name": "Marsonija-sjever",
+        "url": "https://www.ina.hr/station/marsonija-sjever/"
+    },
+    {
+        "name": "Milna-marina",
+        "url": "https://www.ina.hr/station/milna-marina/"
+    },
+    {
+        "name": "Murter",
+        "url": "https://www.ina.hr/station/murter/"
+    },
+    {
+        "name": "Novalja-Špital",
+        "url": "https://www.ina.hr/station/novalja-spital/"
+    },
+    {
+        "name": "Novi Vinodolski – obala",
+        "url": "https://www.ina.hr/station/novi-vinodolski-obala/"
+    },
+    {
+        "name": "Omiš",
+        "url": "https://www.ina.hr/station/omis/"
+    },
+    {
+        "name": "Pag",
+        "url": "https://www.ina.hr/station/pag/"
+    },
+    {
+        "name": "Plitvice–Čatrnja",
+        "url": "https://www.ina.hr/station/plitvice-catrnja/"
+    },
+    {
+        "name": "Poreč-Vukovarska",
+        "url": "https://www.ina.hr/station/porec-vukovarska/"
+    },
+    {
+        "name": "Prokljan-jug",
+        "url": "https://www.ina.hr/station/prokljan-jug/"
+    },
+    {
+        "name": "Prokljan-sjever",
+        "url": "https://www.ina.hr/station/prokljan-sjever/"
+    },
+    {
+        "name": "Pula-obala",
+        "url": "https://www.ina.hr/station/pula-obala/"
+    },
+    {
+        "name": "Rab-obala",
+        "url": "https://www.ina.hr/station/rab-obala/"
+    },
+    {
+        "name": "Rašćane Gornje",
+        "url": "https://www.ina.hr/station/rascane-gornje/"
+    },
+    {
+        "name": "Rastovica",
+        "url": "https://www.ina.hr/station/rastovica/"
+    },
+    {
+        "name": "Rijeka-Školjić",
+        "url": "https://www.ina.hr/station/rijeka-skoljic/"
+    },
+    {
+        "name": "Rupa",
+        "url": "https://www.ina.hr/station/rupa/"
+    },
+    {
+        "name": "Šibenik-obala",
+        "url": "https://www.ina.hr/station/sibenik-obala/"
+    },
+    {
+        "name": "Šibenik-Ražine-zapad",
+        "url": "https://www.ina.hr/station/sibenik-razine-zapad/"
+    },
+    {
+        "name": "Sinj",
+        "url": "https://www.ina.hr/station/sinj/"
+    },
+    {
+        "name": "Sisak-Zagrebačka",
+        "url": "https://www.ina.hr/station/sisak-zagrebacka/"
+    },
+    {
+        "name": "Sokolac Jug",
+        "url": "https://www.ina.hr/station/sokolac-sjever/"
+    },
+    {
+        "name": "Sokolac Sjever",
+        "url": "https://www.ina.hr/station/sokolac-jug/"
+    },
+    {
+        "name": "Solin-Meterize",
+        "url": "https://www.ina.hr/station/solin-meterize/"
+    },
+    {
+        "name": "Split-Kman-jug",
+        "url": "https://www.ina.hr/station/split-kman-jug/"
+    },
+    {
+        "name": "Split-Kopilica-sjever",
+        "url": "https://www.ina.hr/station/split-kopilica-sjever/"
+    },
+    {
+        "name": "Split-obala",
+        "url": "https://www.ina.hr/station/split-obala/"
+    },
+    {
+        "name": "Split-Smokovik",
+        "url": "https://www.ina.hr/station/split-smokovik/"
+    },
+    {
+        "name": "Starigrad-Paklenica",
+        "url": "https://www.ina.hr/station/starigrad-paklenica/"
+    },
+    {
+        "name": "Supetar-Žedno Drage",
+        "url": "https://www.ina.hr/station/supetar-zedno-drage/"
+    },
+    {
+        "name": "Sveta Nedelja",
+        "url": "https://www.ina.hr/station/sveta-nedelja/"
+    },
+    {
+        "name": "Topusko",
+        "url": "https://www.ina.hr/station/topusko/"
+    },
+    {
+        "name": "Trogir-marina",
+        "url": "https://www.ina.hr/station/trogir-marina/"
+    },
+    {
+        "name": "Vela Luka",
+        "url": "https://www.ina.hr/station/vela-luka/"
+    },
+    {
+        "name": "Velika",
+        "url": "https://www.ina.hr/station/velika/"
+    },
+    {
+        "name": "Velika Gorica",
+        "url": "https://www.ina.hr/station/velika-gorica/"
+    },
+    {
+        "name": "Velika Mlaka-jug",
+        "url": "https://www.ina.hr/station/velika-mlaka-jug/"
+    },
+    {
+        "name": "Vidovec",
+        "url": "https://www.ina.hr/station/vidovec/"
+    },
+    {
+        "name": "Vodice-marina",
+        "url": "https://www.ina.hr/station/vodice-marina/"
+    },
+    {
+        "name": "Vozilići",
+        "url": "https://www.ina.hr/station/vozilici/"
+    },
+    {
+        "name": "Zagreb-Dugave-zapad",
+        "url": "https://www.ina.hr/station/zagreb-dugave-zapad/"
+    },
+    {
+        "name": "Zagreb-Kranjčevićeva",
+        "url": "https://www.ina.hr/station/zagreb-kranjceviceva/"
+    },
+    {
+        "name": "Zagreb-Ksaver",
+        "url": "https://www.ina.hr/station/zagreb-ksaver/"
+    },
+    {
+        "name": "Zagreb-Langov trg",
+        "url": "https://www.ina.hr/station/zagreb-langov-trg/"
+    },
+    {
+        "name": "Zagreb-Miramarska",
+        "url": "https://www.ina.hr/station/zagreb-miramarska/"
+    },
+    {
+        "name": "Zagreb-Resnik",
+        "url": "https://www.ina.hr/station/zagreb-resnik/"
+    },
+    {
+        "name": "Zagreb-sjever",
+        "url": "https://www.ina.hr/station/lucko-sjever/"
+    },
+    {
+        "name": "Zagreb-Špansko",
+        "url": "https://www.ina.hr/station/zagreb-spansko/"
+    },
+    {
+        "name": "Zagreb-Stupnik-zapad",
+        "url": "https://www.ina.hr/station/zagreb-stupnik-zapad/"
+    }
+]
