@@ -7,6 +7,15 @@ const SOURCE_URL = 'https://www.ina.hr/trazilica-benzinskih-postaja/';
 const HTML_FILE = 'ina.html';
 const JSON_FILE = 'ina.json';
 
+const GASOLINE_BASIC = new Set([
+    "1000298", // Eurosuper 95
+    "1002498", // Eurosuper 95 Class Plus
+]);
+
+const GASOLINE_PREMIUM = new Set([
+    "1002212", // Eurosuper 95 Class Plus Premium
+]);
+
 async function ensureHtml() {
     if (fs.existsSync(HTML_FILE)) {
         console.log('Koristim postojeci ina.html');
@@ -47,6 +56,15 @@ function parseStations(html) {
     return JSON.parse(decoded);
 }
 
+function hasOnlyPremium(station) {
+    const fuels = new Set(station.fuel);
+
+    const hasBasic = [...GASOLINE_BASIC].some(f => fuels.has(f));
+    const hasPremium = [...GASOLINE_PREMIUM].some(f => fuels.has(f));
+
+    return hasPremium && !hasBasic;
+}
+
 (async () => {
     try {
         const html = await ensureHtml();
@@ -60,6 +78,15 @@ function parseStations(html) {
 
         console.log(`Parsirano ${stations.length} postaja`);
         console.log(`JSON spremljen u ${JSON_FILE}`);
+
+        const premiumOnlyStations = stations.filter(hasOnlyPremium);
+
+        console.log(
+            premiumOnlyStations.map(s => ({
+                name: s.title,
+                url: s.url
+            }))
+        );
     } catch (err) {
         console.error(err.message);
         process.exit(1);
