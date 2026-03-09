@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INA Premium Gorivo</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f5f5f5;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #d40000;
+      color: #fff;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    header .text h1 { font-size: 1.2rem; font-weight: 700; }
+    header .text p  { font-size: 0.85rem; margin-top: 4px; opacity: 0.9; }
+
+    #lang-toggle {
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.5);
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    #lang-toggle:hover { background: rgba(255,255,255,0.35); }
+
+    #map {
+      height: 420px;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    #list-heading {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    #station-list {
+      list-style: none;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    #station-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+    #station-list li:last-child { border-bottom: none; }
+    #station-list li:hover { background: #fef2f2; }
+    #station-list li.active { background: #ffd7d7; }
+
+    #station-list li .name { font-weight: 500; }
+
+    #station-list li a {
+      font-size: 0.8rem;
+      color: #d40000;
+      text-decoration: none;
+      border: 1px solid #d40000;
+      border-radius: 3px;
+      padding: 3px 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-left: 10px;
+    }
+    #station-list li a:hover { background: #d40000; color: #fff; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="text">
+      <h1 id="i18n-title"></h1>
+      <p id="i18n-subtitle"></p>
+    </div>
+    <button id="lang-toggle"></button>
+  </header>
+
+  <div id="map"></div>
+
+  <main>
+    <p id="list-heading"></p>
+    <ul id="station-list"></ul>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const I18N = {
+      hr: {
+        title:    'INA postaje s Premium gorivom po cijeni redovnog',
+        subtitle: 'Zbog regulacije cijena, ove postaje prodaju Eurosuper 95 Class Plus Premium po cijeni Eurosuper 95',
+        heading:  n => `Popis postaja (${n} postaja)`,
+        link:     'Detalji',
+        toggle:   'EN',
+      },
+      en: {
+        title:    'INA stations with Premium fuel at regular price',
+        subtitle: 'Due to price regulation, these stations sell Eurosuper 95 Class Plus Premium at the Eurosuper 95 price',
+        heading:  n => `Station list (${n} stations)`,
+        link:     'Details',
+        toggle:   'HR',
+      },
+    };
+
+    let lang = localStorage.getItem('lang') || 'hr';
+    let stationsData = [];
+    let markers = [];
+    let activeIndex = -1;
+
+    const map = L.map('map').setView([45.1, 16.4], 7);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 19,
+    }).addTo(map);
+
+    function applyLang() {
+      const t = I18N[lang];
+      document.documentElement.lang = lang;
+      document.getElementById('i18n-title').textContent    = t.title;
+      document.getElementById('i18n-subtitle').textContent = t.subtitle;
+      document.getElementById('lang-toggle').textContent   = t.toggle;
+      document.getElementById('list-heading').textContent  = t.heading(stationsData.length);
+      document.querySelectorAll('#station-list li a').forEach(a => {
+        a.textContent = t.link;
+      });
+    }
+
+    function setActive(index) {
+      const items = document.querySelectorAll('#station-list li');
+      if (activeIndex >= 0 && items[activeIndex]) items[activeIndex].classList.remove('active');
+      activeIndex = index;
+      if (items[index]) {
+        items[index].classList.add('active');
+        items[index].scrollIntoView({ block: 'nearest' });
+      }
+      if (markers[index]) markers[index].openPopup();
+    }
+
+    function buildList() {
+      const ul = document.getElementById('station-list');
+      ul.innerHTML = '';
+      stationsData.forEach((s, i) => {
+        const li = document.createElement('li');
+        const name = document.createElement('span');
+        name.className = 'name';
+        name.textContent = s.name;
+        const a = document.createElement('a');
+        a.href = s.url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.textContent = I18N[lang].link;
+        a.addEventListener('click', e => e.stopPropagation());
+        li.appendChild(name);
+        li.appendChild(a);
+        li.addEventListener('click', () => {
+          map.setView([parseFloat(s.lat), parseFloat(s.lng)], 14);
+          setActive(i);
+        });
+        ul.appendChild(li);
+      });
+    }
+
+    function buildMarkers() {
+      markers.forEach(m => map.removeLayer(m));
+      markers = [];
+      stationsData.forEach((s, i) => {
+        const m = L.marker([parseFloat(s.lat), parseFloat(s.lng)]).addTo(map);
+        m.bindPopup(`<strong>${s.name}</strong><br><a href="${s.url}" target="_blank" rel="noopener noreferrer">${I18N[lang].link}</a>`);
+        m.on('click', () => setActive(i));
+        markers.push(m);
+      });
+    }
+
+    document.getElementById('lang-toggle').addEventListener('click', () => {
+      lang = lang === 'hr' ? 'en' : 'hr';
+      localStorage.setItem('lang', lang);
+      applyLang();
+      // Rebuild popups with updated link label
+      markers.forEach((m, i) => {
+        const s = stationsData[i];
+        m.setPopupContent(`<strong>${s.name}</strong><br><a href="${s.url}" target="_blank" rel="noopener noreferrer">${I18N[lang].link}</a>`);
+      });
+    });
+
+    fetch('premium.json')
+      .then(r => r.json())
+      .then(data => {
+        stationsData = data;
+        buildMarkers();
+        buildList();
+        applyLang();
+
+        if (data.length > 0) {
+          const bounds = L.latLngBounds(data.map(s => [parseFloat(s.lat), parseFloat(s.lng)]));
+          map.fitBounds(bounds, { padding: [40, 40] });
+        }
+      })
+      .catch(err => {
+        document.getElementById('list-heading').textContent = 'Error loading data: ' + err.message;
+      });
+
+    applyLang();
+  </script>
+</body>
+</html>
