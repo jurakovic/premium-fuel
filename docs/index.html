@@ -14,11 +14,12 @@
       color: #222;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      height: 100vh;
+      overflow: hidden;
     }
 
     header {
-      background: #d40000;
+      background: #1a56db;
       color: #fff;
       padding: 16px 20px;
       display: flex;
@@ -54,20 +55,28 @@
       max-width: 800px;
       margin: 0 auto;
       width: 100%;
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
     }
 
     #list-heading {
       font-size: 1rem;
       font-weight: 600;
       margin-bottom: 10px;
+      flex-shrink: 0;
     }
 
     #station-list {
       list-style: none;
       border: 1px solid #ddd;
       border-radius: 6px;
-      overflow: hidden;
+      overflow-y: auto;
       background: #fff;
+      flex: 1;
+      min-height: 0;
     }
 
     #station-list li {
@@ -80,23 +89,23 @@
       transition: background 0.1s;
     }
     #station-list li:last-child { border-bottom: none; }
-    #station-list li:hover { background: #fef2f2; }
-    #station-list li.active { background: #ffd7d7; }
+    #station-list li:hover { background: #eff6ff; }
+    #station-list li.active { background: #bfdbfe; }
 
     #station-list li .name { font-weight: 500; }
 
     #station-list li a {
       font-size: 0.8rem;
-      color: #d40000;
+      color: #1a56db;
       text-decoration: none;
-      border: 1px solid #d40000;
+      border: 1px solid #1a56db;
       border-radius: 3px;
       padding: 3px 8px;
       white-space: nowrap;
       flex-shrink: 0;
       margin-left: 10px;
     }
-    #station-list li a:hover { background: #d40000; color: #fff; }
+    #station-list li a:hover { background: #1a56db; color: #fff; }
   </style>
 </head>
 <body>
