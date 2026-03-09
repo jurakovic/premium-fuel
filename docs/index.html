@@ -73,6 +73,20 @@
       min-width: 0;
     }
 
+    #fuel-select {
+      width: 100%;
+      padding: 7px 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      flex-shrink: 0;
+      outline: none;
+      background: #fff;
+      cursor: pointer;
+    }
+    #fuel-select:focus { border-color: #1a56db; box-shadow: 0 0 0 2px #bfdbfe; }
+
     #list-heading {
       font-size: 0.95rem;
       font-weight: 600;
@@ -210,6 +224,10 @@
   <div id="content">
     <div id="sidebar-overlay"></div>
     <main>
+      <select id="fuel-select">
+        <option value="gasoline"></option>
+        <option value="diesel"></option>
+      </select>
       <p id="list-heading"></p>
       <input id="filter" type="search" />
       <ul id="station-list"></ul>
@@ -222,23 +240,28 @@
     const I18N = {
       hr: {
         title:    'INA postaje s Premium gorivom po cijeni redovnog',
-        subtitle: 'Zbog regulacije cijena, ove postaje prodaju Eurosuper 95 Class Plus Premium po cijeni Eurosuper 95',
+        subtitle: 'Zbog regulacije cijena, ove postaje prodaju Premium gorivo po cijeni redovnog',
         heading:  n => `Popis postaja (${n} postaja)`,
         link:     'Detalji',
         toggle:   'EN',
         filter:   'Pretraži postaje…',
+        gasoline: 'Eurosuper 95 Class Plus Premium',
+        diesel:   'Eurodiesel Class Plus Premium',
       },
       en: {
         title:    'INA stations with Premium fuel at regular price',
-        subtitle: 'Due to price regulation, these stations sell Eurosuper 95 Class Plus Premium at the Eurosuper 95 price',
+        subtitle: 'Due to price regulation, these stations sell Premium fuel at the regular fuel price',
         heading:  n => `Station list (${n} stations)`,
         link:     'Details',
         toggle:   'HR',
         filter:   'Search stations…',
+        gasoline: 'Eurosuper 95 Class Plus Premium',
+        diesel:   'Eurodiesel Class Plus Premium',
       },
     };
 
-    let lang = localStorage.getItem('lang') || 'hr';
+    let lang      = localStorage.getItem('lang') || 'hr';
+    let fuelType  = localStorage.getItem('fuelType') || 'gasoline';
     let stationsData = [];
     let markers = [];
     let activeIndex = -1;
@@ -258,6 +281,9 @@
       document.getElementById('lang-toggle').textContent   = t.toggle;
       document.getElementById('list-heading').textContent  = t.heading(stationsData.length);
       document.getElementById('filter').placeholder        = t.filter;
+      document.querySelectorAll('#fuel-select option').forEach(o => {
+        o.textContent = t[o.value];
+      });
       document.querySelectorAll('#station-list li a').forEach(a => {
         a.textContent = t.link;
       });
@@ -344,24 +370,33 @@
       });
     });
 
-    fetch('premium.json')
-      .then(r => r.json())
-      .then(data => {
-        stationsData = data;
-        buildMarkers();
-        buildList();
-        applyLang();
+    function loadFuel(type) {
+      fuelType = type;
+      localStorage.setItem('fuelType', type);
+      document.getElementById('filter').value = '';
+      fetch(`premium-${type}.json`)
+        .then(r => r.json())
+        .then(data => {
+          stationsData = data;
+          buildMarkers();
+          buildList();
+          applyLang();
+          if (data.length > 0) {
+            const bounds = L.latLngBounds(data.map(s => [parseFloat(s.lat), parseFloat(s.lng)]));
+            map.fitBounds(bounds, { padding: [40, 40] });
+          }
+        })
+        .catch(err => {
+          document.getElementById('list-heading').textContent = 'Error loading data: ' + err.message;
+        });
+    }
 
-        if (data.length > 0) {
-          const bounds = L.latLngBounds(data.map(s => [parseFloat(s.lat), parseFloat(s.lng)]));
-          map.fitBounds(bounds, { padding: [40, 40] });
-        }
-      })
-      .catch(err => {
-        document.getElementById('list-heading').textContent = 'Error loading data: ' + err.message;
-      });
+    const fuelSelect = document.getElementById('fuel-select');
+    fuelSelect.value = fuelType;
+    fuelSelect.addEventListener('change', e => loadFuel(e.target.value));
 
     applyLang();
+    loadFuel(fuelType);
   </script>
 </body>
 </html>

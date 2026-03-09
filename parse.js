@@ -6,7 +6,8 @@ import he from 'he';
 const SOURCE_URL = 'https://www.ina.hr/trazilica-benzinskih-postaja/';
 const HTML_FILE = 'ina.html';
 const JSON_FILE = 'ina.json';
-const PREMIUM_FILE = 'premium.json';
+const PREMIUM_GASOLINE_FILE = 'docs/premium-gasoline.json';
+const PREMIUM_DIESEL_FILE   = 'docs/premium-diesel.json';
 
 const GASOLINE_BASIC = new Set([
     "1000298", // Eurosuper 95
@@ -15,6 +16,16 @@ const GASOLINE_BASIC = new Set([
 
 const GASOLINE_PREMIUM = new Set([
     "1002212", // Eurosuper 95 Class Plus Premium
+]);
+
+const DIESEL_BASIC = new Set([
+    "1000628", // Eurodiesel
+    "1002840", // Eurodiesel Class Plus
+    "1002223", // Eurodiesel Class Plus Expert
+]);
+
+const DIESEL_PREMIUM = new Set([
+    "1002835", // Eurodiesel Class Plus Premium
 ]);
 
 async function ensureHtml() {
@@ -57,11 +68,20 @@ function parseStations(html) {
     return JSON.parse(decoded);
 }
 
-function hasOnlyPremium(station) {
-    const hasBasic = station.fuel.some(f => GASOLINE_BASIC.has(f));
+function hasOnlyPremiumGasoline(station) {
+    const hasBasic   = station.fuel.some(f => GASOLINE_BASIC.has(f));
     const hasPremium = station.fuel.some(f => GASOLINE_PREMIUM.has(f));
-
     return hasPremium && !hasBasic;
+}
+
+function hasOnlyPremiumDiesel(station) {
+    const hasBasic   = station.fuel.some(f => DIESEL_BASIC.has(f));
+    const hasPremium = station.fuel.some(f => DIESEL_PREMIUM.has(f));
+    return hasPremium && !hasBasic;
+}
+
+function toOutput(s) {
+    return { name: s.title, url: s.url, lat: s.lat, lng: s.lng };
 }
 
 (async () => {
@@ -78,20 +98,13 @@ function hasOnlyPremium(station) {
         console.log(`Parsed ${stations.length} stations`);
         console.log(`JSON saved to ${JSON_FILE}`);
 
-        const premiumOnlyStations = stations.filter(hasOnlyPremium);
+        const premiumGasoline = stations.filter(hasOnlyPremiumGasoline);
+        fs.writeFileSync(PREMIUM_GASOLINE_FILE, JSON.stringify(premiumGasoline.map(toOutput), null, 2), 'utf8');
+        console.log(`${premiumGasoline.length} premium-gasoline stations saved to ${PREMIUM_GASOLINE_FILE}`);
 
-        fs.writeFileSync(
-            PREMIUM_FILE,
-            JSON.stringify(premiumOnlyStations.map(s => ({
-                name: s.title,
-                url: s.url,
-                lat: s.lat,
-                lng: s.lng
-            })), null, 2),
-            'utf8'
-        );
-
-        console.log(`${premiumOnlyStations.length} premium-only stations saved to ${PREMIUM_FILE}`);
+        const premiumDiesel = stations.filter(hasOnlyPremiumDiesel);
+        fs.writeFileSync(PREMIUM_DIESEL_FILE, JSON.stringify(premiumDiesel.map(toOutput), null, 2), 'utf8');
+        console.log(`${premiumDiesel.length} premium-diesel stations saved to ${PREMIUM_DIESEL_FILE}`);
     } catch (err) {
         console.error(err.message);
         process.exit(1);
