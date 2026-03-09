@@ -1001,6 +1001,10 @@
         "label": "Roba široke potrošnje"
       },
       {
+        "value": "Fresh",
+        "label": "Fresh Corner"
+      },
+      {
         "value": "Adblue",
         "label": "Ad Blue"
       }
@@ -1148,6 +1152,10 @@
       {
         "value": "Roba",
         "label": "Roba široke potrošnje"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",
@@ -1328,6 +1336,10 @@
       {
         "value": "Roba",
         "label": "Roba široke potrošnje"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",
@@ -1633,6 +1645,10 @@
         "label": "NON-STOP"
       },
       {
+        "value": "Fresh",
+        "label": "Fresh Corner"
+      },
+      {
         "value": "Adblue",
         "label": "Ad Blue"
       }
@@ -1859,6 +1875,10 @@
         "label": "NON-STOP"
       },
       {
+        "value": "Fresh",
+        "label": "Fresh Corner"
+      },
+      {
         "value": "Adblue",
         "label": "Ad Blue"
       }
@@ -1949,6 +1969,10 @@
       {
         "value": "Roba",
         "label": "Roba široke potrošnje"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",
@@ -2068,7 +2092,10 @@
     "lat": "42.658784",
     "lng": "18.079459",
     "direction": [],
-    "fuel": [],
+    "fuel": [
+      "1002498",
+      "1002840"
+    ],
     "services": [
       {
         "value": "Plovila",
@@ -2246,6 +2273,7 @@
       "D6"
     ],
     "fuel": [
+      "1000340",
       "1002498",
       "1002840"
     ],
@@ -2487,6 +2515,10 @@
       {
         "value": "Roba",
         "label": "Roba široke potrošnje"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",
@@ -2985,6 +3017,10 @@
       {
         "value": "Roba",
         "label": "Roba široke potrošnje"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",
@@ -3613,6 +3649,10 @@
         "label": "Roba široke potrošnje"
       },
       {
+        "value": "Fresh",
+        "label": "Fresh Corner"
+      },
+      {
         "value": "Adblue",
         "label": "Ad Blue"
       }
@@ -3954,6 +3994,10 @@
         "label": "Roba široke potrošnje"
       },
       {
+        "value": "Fresh",
+        "label": "Fresh Corner"
+      },
+      {
         "value": "Adblue",
         "label": "Ad Blue"
       }
@@ -4165,6 +4209,10 @@
       {
         "value": "nonStop",
         "label": "NON-STOP"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",
@@ -4388,7 +4436,6 @@
     ],
     "fuel": [
       "1002212",
-      "1002498",
       "1002840",
       "1002835"
     ],
@@ -4580,6 +4627,10 @@
       {
         "value": "HotSpot",
         "label": "HotSpot"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",
@@ -5314,7 +5365,11 @@
     "lat": "43.294866",
     "lng": "17.015763",
     "direction": [],
-    "fuel": [],
+    "fuel": [
+      "1002212",
+      "1000340",
+      "1002835"
+    ],
     "services": [
       {
         "value": "Roba",
@@ -5386,7 +5441,6 @@
     "lng": "14.471971",
     "direction": [],
     "fuel": [
-      "1002212",
       "1002498",
       "1002840",
       "1002835"
@@ -5419,8 +5473,6 @@
     "fuel": [
       "1002212",
       "1002213",
-      "1000340",
-      "1002498",
       "1002835"
     ],
     "services": [
@@ -5658,7 +5710,12 @@
     "lat": "43.026467",
     "lng": "17.602404",
     "direction": [],
-    "fuel": [],
+    "fuel": [
+      "1002212",
+      "1002498",
+      "1002840",
+      "1002835"
+    ],
     "services": [
       {
         "value": "Roba",
@@ -5823,6 +5880,10 @@
       {
         "value": "Roba",
         "label": "Roba široke potrošnje"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",
@@ -6348,6 +6409,10 @@
         "label": "HotSpot"
       },
       {
+        "value": "Fresh",
+        "label": "Fresh Corner"
+      },
+      {
         "value": "Adblue",
         "label": "Ad Blue"
       }
@@ -6409,6 +6474,10 @@
       {
         "value": "Roba",
         "label": "Roba široke potrošnje"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",
@@ -6556,6 +6625,10 @@
         "label": "Roba široke potrošnje"
       },
       {
+        "value": "Fresh",
+        "label": "Fresh Corner"
+      },
+      {
         "value": "Adblue",
         "label": "Ad Blue"
       }
@@ -6587,6 +6660,10 @@
       {
         "value": "Roba",
         "label": "Roba široke potrošnje"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",
@@ -6745,6 +6822,10 @@
       {
         "value": "Roba",
         "label": "Roba široke potrošnje"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",
@@ -7380,9 +7461,9 @@
     "direction": [],
     "fuel": [
       "1002212",
-      "1002213",
       "1000620",
       "1000340",
+      "1002498",
       "1002840",
       "1002835"
     ],
@@ -7549,7 +7630,6 @@
     "direction": [],
     "fuel": [
       "1002212",
-      "1000340",
       "1002498",
       "1002840"
     ],
@@ -7708,6 +7788,10 @@
       {
         "value": "Roba",
         "label": "Roba široke potrošnje"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",
@@ -8009,6 +8093,10 @@
       {
         "value": "nonStop",
         "label": "NON-STOP"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",
@@ -8568,6 +8656,10 @@
         "label": "Roba široke potrošnje"
       },
       {
+        "value": "Fresh",
+        "label": "Fresh Corner"
+      },
+      {
         "value": "Adblue",
         "label": "Ad Blue"
       }
@@ -8598,6 +8690,10 @@
       {
         "value": "Roba",
         "label": "Roba široke potrošnje"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",
@@ -8860,6 +8956,10 @@
       {
         "value": "Roba",
         "label": "Roba široke potrošnje"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",
@@ -9234,6 +9334,10 @@
         "label": "Roba široke potrošnje"
       },
       {
+        "value": "Fresh",
+        "label": "Fresh Corner"
+      },
+      {
         "value": "Adblue",
         "label": "Ad Blue"
       }
@@ -9509,6 +9613,10 @@
       {
         "value": "nonStop",
         "label": "NON-STOP"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",
@@ -10241,6 +10349,10 @@
         "label": "Roba široke potrošnje"
       },
       {
+        "value": "Fresh",
+        "label": "Fresh Corner"
+      },
+      {
         "value": "Adblue",
         "label": "Ad Blue"
       }
@@ -10258,7 +10370,12 @@
     "direction": [
       "D8"
     ],
-    "fuel": [],
+    "fuel": [
+      "1002213",
+      "1002498",
+      "1002840",
+      "1002835"
+    ],
     "services": [
       {
         "value": "UNP",
@@ -10287,7 +10404,7 @@
     "fuel": [
       "1000340",
       "1002498",
-      "1002835"
+      "1002840"
     ],
     "services": [
       {
@@ -10318,6 +10435,7 @@
     ],
     "fuel": [
       "1002212",
+      "1000340",
       "1002498",
       "1002840"
     ],
@@ -10416,7 +10534,6 @@
     "fuel": [
       "1000340",
       "1002498",
-      "1002840",
       "1002835"
     ],
     "services": [
@@ -10461,6 +10578,10 @@
       {
         "value": "Roba",
         "label": "Roba široke potrošnje"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",
@@ -10542,6 +10663,7 @@
     "direction": [],
     "fuel": [
       "1002212",
+      "1002498",
       "1002840"
     ],
     "services": [
@@ -12146,6 +12268,10 @@
         "label": "Roba široke potrošnje"
       },
       {
+        "value": "Fresh",
+        "label": "Fresh Corner"
+      },
+      {
         "value": "Adblue",
         "label": "Ad Blue"
       }
@@ -12532,6 +12658,10 @@
         "label": "NON-STOP"
       },
       {
+        "value": "Fresh",
+        "label": "Fresh Corner"
+      },
+      {
         "value": "Adblue",
         "label": "Ad Blue"
       }
@@ -12712,6 +12842,10 @@
       {
         "value": "Roba",
         "label": "Roba široke potrošnje"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",
@@ -13448,7 +13582,6 @@
     "direction": [],
     "fuel": [
       "1002212",
-      "1002498",
       "1002840",
       "1002835"
     ],
@@ -13460,6 +13593,10 @@
       {
         "value": "Roba",
         "label": "Roba široke potrošnje"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",
@@ -13893,6 +14030,10 @@
         "label": "Roba široke potrošnje"
       },
       {
+        "value": "Fresh",
+        "label": "Fresh Corner"
+      },
+      {
         "value": "Adblue",
         "label": "Ad Blue"
       }
@@ -14056,6 +14197,10 @@
       {
         "value": "Roba",
         "label": "Roba široke potrošnje"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
       },
       {
         "value": "Adblue",

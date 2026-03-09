@@ -6,6 +6,7 @@ import he from 'he';
 const SOURCE_URL = 'https://www.ina.hr/trazilica-benzinskih-postaja/';
 const HTML_FILE = 'ina.html';
 const JSON_FILE = 'ina.json';
+const PREMIUM_FILE = 'premium.json';
 
 const GASOLINE_BASIC = new Set([
     "1000298", // Eurosuper 95
@@ -18,19 +19,19 @@ const GASOLINE_PREMIUM = new Set([
 
 async function ensureHtml() {
     if (fs.existsSync(HTML_FILE)) {
-        console.log('Koristim postojeci ina.html');
+        console.log('Using existing ina.html');
         return fs.readFileSync(HTML_FILE, 'utf8');
     }
 
-    console.log('Skidam HTML sa INA stranice...');
+    console.log('Fetching HTML from INA website...');
     const html = await fetch(SOURCE_URL, {
         headers: {
-            'User-Agent': 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0'
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0'
         }
     }).then(r => r.text());
 
     fs.writeFileSync(HTML_FILE, html, 'utf8');
-    console.log('Spremljeno u ina.html');
+    console.log('Saved to ina.html');
 
     return html;
 }
@@ -41,12 +42,12 @@ function parseStations(html) {
 
     const mdata = document.querySelector('#mdata');
     if (!mdata) {
-        throw new Error('#mdata element nije pronaden');
+        throw new Error('#mdata element not found');
     }
 
     const rawStations = mdata.getAttribute('stations');
     if (!rawStations) {
-        throw new Error('stations atribut nije pronaden');
+        throw new Error('stations attribute not found');
     }
 
     // HTML decode
@@ -57,10 +58,8 @@ function parseStations(html) {
 }
 
 function hasOnlyPremium(station) {
-    const fuels = new Set(station.fuel);
-
-    const hasBasic = [...GASOLINE_BASIC].some(f => fuels.has(f));
-    const hasPremium = [...GASOLINE_PREMIUM].some(f => fuels.has(f));
+    const hasBasic = station.fuel.some(f => GASOLINE_BASIC.has(f));
+    const hasPremium = station.fuel.some(f => GASOLINE_PREMIUM.has(f));
 
     return hasPremium && !hasBasic;
 }
@@ -76,17 +75,23 @@ function hasOnlyPremium(station) {
             'utf8'
         );
 
-        console.log(`Parsirano ${stations.length} postaja`);
-        console.log(`JSON spremljen u ${JSON_FILE}`);
+        console.log(`Parsed ${stations.length} stations`);
+        console.log(`JSON saved to ${JSON_FILE}`);
 
         const premiumOnlyStations = stations.filter(hasOnlyPremium);
 
-        console.log(
-            premiumOnlyStations.map(s => ({
+        fs.writeFileSync(
+            PREMIUM_FILE,
+            JSON.stringify(premiumOnlyStations.map(s => ({
                 name: s.title,
-                url: s.url
-            }))
+                url: s.url,
+                lat: s.lat,
+                lng: s.lng
+            })), null, 2),
+            'utf8'
         );
+
+        console.log(`${premiumOnlyStations.length} premium-only stations saved to ${PREMIUM_FILE}`);
     } catch (err) {
         console.error(err.message);
         process.exit(1);
