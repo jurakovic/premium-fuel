@@ -69,9 +69,21 @@
     #list-heading {
       font-size: 0.95rem;
       font-weight: 600;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       flex-shrink: 0;
     }
+
+    #filter {
+      width: 100%;
+      padding: 7px 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      flex-shrink: 0;
+      outline: none;
+    }
+    #filter:focus { border-color: #1a56db; box-shadow: 0 0 0 2px #bfdbfe; }
 
     #station-list {
       list-style: none;
@@ -125,6 +137,7 @@
   <div id="content">
     <main>
       <p id="list-heading"></p>
+      <input id="filter" type="search" />
       <ul id="station-list"></ul>
     </main>
     <div id="map"></div>
@@ -139,6 +152,7 @@
         heading:  n => `Popis postaja (${n} postaja)`,
         link:     'Detalji',
         toggle:   'EN',
+        filter:   'Pretraži postaje…',
       },
       en: {
         title:    'INA stations with Premium fuel at regular price',
@@ -146,6 +160,7 @@
         heading:  n => `Station list (${n} stations)`,
         link:     'Details',
         toggle:   'HR',
+        filter:   'Search stations…',
       },
     };
 
@@ -168,6 +183,7 @@
       document.getElementById('i18n-subtitle').textContent = t.subtitle;
       document.getElementById('lang-toggle').textContent   = t.toggle;
       document.getElementById('list-heading').textContent  = t.heading(stationsData.length);
+      document.getElementById('filter').placeholder        = t.filter;
       document.querySelectorAll('#station-list li a').forEach(a => {
         a.textContent = t.link;
       });
@@ -227,6 +243,14 @@
       markers.forEach((m, i) => {
         const s = stationsData[i];
         m.setPopupContent(`<strong>${s.name}</strong><br><a href="${s.url}" target="_blank" rel="noopener noreferrer">${I18N[lang].link}</a>`);
+      });
+    });
+
+    document.getElementById('filter').addEventListener('input', e => {
+      const q = e.target.value.trim().toLowerCase();
+      document.querySelectorAll('#station-list li').forEach((li, i) => {
+        const match = stationsData[i].name.toLowerCase().includes(q);
+        li.style.display = match ? '' : 'none';
       });
     });
 
