@@ -1,0 +1,140 @@
+[
+  {
+    "name": "Biograd na Moru-obala",
+    "url": "https://www.ina.hr/station/biograd-na-moru-obala/",
+    "lat": "43.938762",
+    "lng": "15.43982"
+  },
+  {
+    "name": "Bol",
+    "url": "https://www.ina.hr/station/bol/",
+    "lat": "43.260436",
+    "lng": "16.654488"
+  },
+  {
+    "name": "Cres-marina",
+    "url": "https://www.ina.hr/station/cres-marina/",
+    "lat": "44.9509102514",
+    "lng": "14.4146582795"
+  },
+  {
+    "name": "Hvar",
+    "url": "https://www.ina.hr/station/hvar/",
+    "lat": "43.166225",
+    "lng": "16.445057"
+  },
+  {
+    "name": "Jezera-marina",
+    "url": "https://www.ina.hr/station/jezera-marina/",
+    "lat": "43.7843315482",
+    "lng": "15.6433358371"
+  },
+  {
+    "name": "Makarska-obala",
+    "url": "https://www.ina.hr/station/makarska-obala/",
+    "lat": "43.294866",
+    "lng": "17.015763"
+  },
+  {
+    "name": "Mali Lošinj-obala",
+    "url": "https://www.ina.hr/station/mali-losinj-obala/",
+    "lat": "44.53391",
+    "lng": "14.463354"
+  },
+  {
+    "name": "Milna-marina",
+    "url": "https://www.ina.hr/station/milna-marina/",
+    "lat": "43.327145",
+    "lng": "16.443256"
+  },
+  {
+    "name": "Novi Vinodolski – obala",
+    "url": "https://www.ina.hr/station/novi-vinodolski-obala/",
+    "lat": "45.125938",
+    "lng": "14.788325"
+  },
+  {
+    "name": "Preko",
+    "url": "https://www.ina.hr/station/preko/",
+    "lat": "44.07648",
+    "lng": "15.193947"
+  },
+  {
+    "name": "Prokljan-jug",
+    "url": "https://www.ina.hr/station/prokljan-jug/",
+    "lat": "43.856069",
+    "lng": "15.845194"
+  },
+  {
+    "name": "Prokljan-sjever",
+    "url": "https://www.ina.hr/station/prokljan-sjever/",
+    "lat": "43.8563572767",
+    "lng": "15.8468319235"
+  },
+  {
+    "name": "Pula-obala",
+    "url": "https://www.ina.hr/station/pula-obala/",
+    "lat": "44.8732650371",
+    "lng": "13.8474952237"
+  },
+  {
+    "name": "Rab-obala",
+    "url": "https://www.ina.hr/station/rab-obala/",
+    "lat": "44.757722",
+    "lng": "14.763417"
+  },
+  {
+    "name": "Rijeka-Kantrida-sjever",
+    "url": "https://www.ina.hr/station/rijeka-kantrida-sjever/",
+    "lat": "45.342058",
+    "lng": "14.371391"
+  },
+  {
+    "name": "Rijeka-Vežica",
+    "url": "https://www.ina.hr/station/rijeka-vezica/",
+    "lat": "45.325514",
+    "lng": "14.47763"
+  },
+  {
+    "name": "Šibenik-obala",
+    "url": "https://www.ina.hr/station/sibenik-obala/",
+    "lat": "43.733142",
+    "lng": "15.891416"
+  },
+  {
+    "name": "Split-obala",
+    "url": "https://www.ina.hr/station/split-obala/",
+    "lat": "43.505585",
+    "lng": "16.431548"
+  },
+  {
+    "name": "Sv. Ivan Žabno",
+    "url": "https://www.ina.hr/station/sv-ivan-zabno/",
+    "lat": "45.945419",
+    "lng": "16.606488"
+  },
+  {
+    "name": "Trogir-marina",
+    "url": "https://www.ina.hr/station/trogir-marina/",
+    "lat": "43.513164",
+    "lng": "16.24628"
+  },
+  {
+    "name": "Vodice-marina",
+    "url": "https://www.ina.hr/station/vodice-marina/",
+    "lat": "43.757314196",
+    "lng": "15.7805303403"
+  },
+  {
+    "name": "Vozilići",
+    "url": "https://www.ina.hr/station/vozilici/",
+    "lat": "45.15636",
+    "lng": "14.161327"
+  },
+  {
+    "name": "Zadar-Voštarnica",
+    "url": "https://www.ina.hr/station/zadar-vostarnica/",
+    "lat": "44.118043",
+    "lng": "15.228679"
+  }
+]
