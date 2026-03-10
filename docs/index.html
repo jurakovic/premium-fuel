@@ -218,6 +218,64 @@
     }
     #theme-toggle:hover { color: var(--accent); }
 
+    #info-toggle {
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.5);
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    #info-toggle:hover { background: rgba(255,255,255,0.35); }
+
+    #info-dialog {
+      position: relative;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      max-width: 480px;
+      width: calc(100% - 48px);
+      background: var(--list-bg);
+      color: var(--text);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      margin: auto;
+    }
+    #info-dialog::backdrop { background: rgba(0,0,0,0.4); }
+    #info-dialog h2 { font-size: 1rem; margin-bottom: 16px; padding-right: 32px; }
+    #info-dialog h3 { font-size: 0.875rem; margin: 14px 0 6px; color: var(--accent); }
+    #info-dialog p  { font-size: 0.875rem; line-height: 1.6; color: var(--text); }
+    #info-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1rem;
+      line-height: 1;
+      padding: 4px 8px;
+    }
+    #info-close:hover { color: var(--text); background: var(--hover-bg); }
+
+    @media (max-width: 700px) {
+      #info-dialog {
+        border: none;
+        border-radius: 0;
+        padding: 28px 20px;
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        margin: 0;
+        overflow-y: auto;
+      }
+    }
+
     /* Leaflet dark overrides */
     [data-theme="dark"] .leaflet-tile-pane {
       filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
@@ -306,7 +364,10 @@
       <h1 id="i18n-title"></h1>
       <p id="i18n-subtitle"></p>
     </div>
-    <button id="lang-toggle"></button>
+    <div style="display:flex;gap:8px;flex-shrink:0;">
+      <button id="info-toggle" title="O stranici">ℹ</button>
+      <button id="lang-toggle"></button>
+    </div>
   </header>
 
   <div id="content">
@@ -327,6 +388,23 @@
         <button id="theme-toggle"></button>
       </footer>
     </main>
+
+    <dialog id="info-dialog">
+      <button id="info-close" onclick="document.getElementById('info-dialog').close()" title="Zatvori">&#x2715;</button>
+      <h2>Zašto Vlada regulira cijene goriva?</h2>
+      <h3>2022. – Rat u Ukrajini i početak regulacije</h3>
+      <p>Nakon ruske invazije na Ukrajinu 2022. godine, cijene energenata u Europi naglo su porasle. Hrvatska vlada reagirala je uredbom o regulaciji maloprodajnih cijena naftnih derivata, kojom je uvela maksimalne maloprodajne cijene za osnovna goriva – Eurosuper 95 i Eurodiesel. Cijene su se mijenjale svakih 14 dana, a uredba se višestruko produžavala.</p>
+      <h3>Srpanj 2025. – Deregulacija</h3>
+      <p>Nakon gotovo tri godine državne regulacije, Vlada je u srpnju 2025. ukinula uredbu jer su se globalna tržišta stabilizirala. Distributeri poput INE, Croduxa i Tifona od tada su samostalno određivali maloprodajne cijene.</p>
+      <h3>Ožujak 2026. – Nova kriza, nova regulacija</h3>
+      <p>Zbog eskalacije sukoba na Bliskom istoku i poremećaja u opskrbi naftom, cijene goriva naglo su porasle. Vlada je ponovo uvela regulaciju kako bi zaštitila građane od punog tržišnog udara.</p>
+      <h3>Što je regulirano, a što nije?</h3>
+      <p>Uredba obuhvaća isključivo osnovna goriva. Premium varijante – Eurosuper 95 Class Plus Premium i Eurodiesel Class Plus Premium – nisu izravno regulirane i mogu se prodavati po tržišnoj cijeni.</p>
+      <h3>Gdje nastaje pogodnost za vozače?</h3>
+      <p>Ako postaja prodaje isključivo premium gorivo, bez dostupnosti osnovne regulirane varijante, mora ga prodavati po reguliranoj cijeni – jer kupci moraju imati pristup gorivu obuhvaćenom uredbom. Na takvim postajama vozači mogu točiti premium gorivo po cijeni redovnog.</p>
+      <h3>Ova stranica</h3>
+      <p>Prikazuje INA postaje koje prodaju isključivo premium gorivo, gdje se navedena pogodnost primjenjuje. Podaci se povremeno osvježavaju ručno iz INA tražilice postaja.</p>
+    </dialog>
     <div id="map"></div>
   </div>
 
@@ -511,6 +589,14 @@
         const s = stationsData[i];
         m.setPopupContent(`<strong>${s.name}</strong><br><a href="${s.url}" target="_blank" rel="noopener noreferrer">${I18N[lang].link}</a>`);
       });
+    });
+
+    const infoDialog = document.getElementById('info-dialog');
+    document.getElementById('info-toggle').addEventListener('click', () => {
+      infoDialog.showModal();
+    });
+    infoDialog.addEventListener('click', e => {
+      if (e.target === infoDialog) infoDialog.close();
     });
 
     document.getElementById('filter').addEventListener('input', e => {
