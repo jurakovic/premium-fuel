@@ -27,43 +27,12 @@
   <link rel="manifest" href="assets/site.webmanifest">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
-    :root {
-      --bg:            #f5f5f5;
-      --list-bg:       #fff;
-      --border:        #ddd;
-      --border-light:  #eee;
-      --text:          #222;
-      --text-muted:    #888;
-      --hover-bg:      #eff6ff;
-      --active-bg:     #bfdbfe;
-      --input-bg:      #fff;
-      --input-border:  #ccc;
-      --accent:        #1a56db;
-      --accent-shadow: #bfdbfe;
-      color-scheme: light;
-    }
-    [data-theme="dark"] {
-      --bg:            #18181b;
-      --list-bg:       #27272a;
-      --border:        #3f3f46;
-      --border-light:  #3f3f46;
-      --text:          #f4f4f5;
-      --text-muted:    #a1a1aa;
-      --hover-bg:      #1e3a5f;
-      --active-bg:     #1e40af;
-      --input-bg:      #27272a;
-      --input-border:  #52525b;
-      --accent:        #60a5fa;
-      --accent-shadow: #1e3a5f;
-      color-scheme: dark;
-    }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: #f5f5f5;
+      color: #222;
       display: flex;
       flex-direction: column;
       height: 100dvh;
@@ -109,8 +78,8 @@
       display: flex;
       flex-direction: column;
       min-height: 0;
-      border-right: 1px solid var(--border);
-      background: var(--bg);
+      border-right: 1px solid #ddd;
+      background: #f5f5f5;
     }
 
     #map {
@@ -122,16 +91,15 @@
       width: 100%;
       padding: 7px 10px;
       margin-bottom: 10px;
-      border: 1px solid var(--input-border);
+      border: 1px solid #ccc;
       border-radius: 4px;
       font-size: 0.875rem;
       flex-shrink: 0;
       outline: none;
-      background: var(--input-bg);
-      color: var(--text);
+      background: #fff;
       cursor: pointer;
     }
-    #fuel-select:focus { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-shadow); }
+    #fuel-select:focus { border-color: #1a56db; box-shadow: 0 0 0 2px #bfdbfe; }
 
     #list-heading {
       font-size: 0.95rem;
@@ -144,23 +112,21 @@
       width: 100%;
       padding: 7px 10px;
       margin-bottom: 10px;
-      border: 1px solid var(--input-border);
+      border: 1px solid #ccc;
       border-radius: 4px;
       font-size: 0.875rem;
       flex-shrink: 0;
       outline: none;
-      background: var(--input-bg);
-      color: var(--text);
     }
-    #filter:focus { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-shadow); }
+    #filter:focus { border-color: #1a56db; box-shadow: 0 0 0 2px #bfdbfe; }
 
     #station-list {
       list-style: none;
-      border: 1px solid var(--border);
+      border: 1px solid #ddd;
       border-radius: 6px;
       overflow-y: auto;
       scrollbar-gutter: stable;
-      background: var(--list-bg);
+      background: #fff;
       flex: 1;
       min-height: 0;
     }
@@ -170,64 +136,38 @@
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px 10px 14px;
-      border-bottom: 1px solid var(--border-light);
+      border-bottom: 1px solid #eee;
       cursor: pointer;
       transition: background 0.1s;
     }
     #station-list li:last-child { border-bottom: none; }
-    #station-list li:hover { background: var(--hover-bg); }
-    #station-list li.active { background: var(--active-bg); }
+    #station-list li:hover { background: #eff6ff; }
+    #station-list li.active { background: #bfdbfe; }
 
     #station-list li .name { font-weight: 500; }
 
     #station-list li a {
       font-size: 0.8rem;
-      color: var(--accent);
+      color: #1a56db;
       text-decoration: none;
-      border: 1px solid var(--accent);
+      border: 1px solid #1a56db;
       border-radius: 3px;
       padding: 3px 8px;
       white-space: nowrap;
       flex-shrink: 0;
       margin-left: 10px;
     }
-    #station-list li a:hover { background: var(--accent); color: var(--list-bg); }
+    #station-list li a:hover { background: #1a56db; color: #fff; }
 
     footer {
       flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
+      text-align: center;
       padding: 10px 0 2px;
       font-size: 0.8rem;
-      color: var(--text-muted);
+      color: #888;
     }
-    footer a { color: var(--text-muted); text-decoration: none; }
-    footer a:hover { color: var(--accent); }
-
-    #theme-toggle {
-      background: none;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      line-height: 1;
-    }
-    #theme-toggle:hover { color: var(--accent); }
-
-    /* Leaflet dark overrides */
-    [data-theme="dark"] .leaflet-popup-content-wrapper,
-    [data-theme="dark"] .leaflet-popup-tip { background: var(--list-bg); color: var(--text); }
-    [data-theme="dark"] .leaflet-popup-content-wrapper a { color: var(--accent); }
-    [data-theme="dark"] .leaflet-bar a {
-      background-color: var(--list-bg);
-      color: var(--text);
-      border-color: var(--border);
-    }
-    [data-theme="dark"] .leaflet-bar a:hover { background-color: var(--hover-bg); }
+    footer a { color: #888; text-decoration: none; }
+    footer a:hover { color: #1a56db; }
 
     #menu-toggle { display: none; }
 
@@ -283,7 +223,7 @@
         max-width: 340px;
         height: 100%;
         z-index: 1200;
-        border-right: 1px solid var(--border);
+        border-right: 1px solid #ddd;
         padding: 14px;
         transform: translateX(-105%);
         transition: transform 0.25s ease;
@@ -319,8 +259,6 @@
         <a id="i18n-home" href="https://jurakovic.github.io">Početna</a>
         &nbsp;·&nbsp;
         <a href="https://github.com/jurakovic/premium-fuel"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px;margin-right:4px;" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub</a>
-        &nbsp;·&nbsp;
-        <button id="theme-toggle"></button>
       </footer>
     </main>
     <div id="map"></div>
@@ -330,57 +268,31 @@
   <script>
     const I18N = {
       hr: {
-        title:       'INA postaje s Premium gorivom po cijeni redovnog',
-        subtitle:    'Zbog regulacije cijena, ove postaje prodaju Premium gorivo po cijeni redovnog',
-        heading:     n => `Popis postaja (${n} postaja)`,
-        link:        'Detalji',
-        toggle:      'EN',
-        filter:      'Pretraži postaje…',
-        gasoline:    'Eurosuper 95 Class Plus Premium',
-        diesel:      'Eurodiesel Class Plus Premium',
-        home:        'Početna',
-        themeSystem: 'Tema: Sustav',
-        themeLight:  'Tema: Svijetla',
-        themeDark:   'Tema: Tamna',
+        title:    'INA postaje s Premium gorivom po cijeni redovnog',
+        subtitle: 'Zbog regulacije cijena, ove postaje prodaju Premium gorivo po cijeni redovnog',
+        heading:  n => `Popis postaja (${n} postaja)`,
+        link:     'Detalji',
+        toggle:   'EN',
+        filter:   'Pretraži postaje…',
+        gasoline: 'Eurosuper 95 Class Plus Premium',
+        diesel:   'Eurodiesel Class Plus Premium',
+        home:     'Početna',
       },
       en: {
-        title:       'INA stations with Premium fuel at regular price',
-        subtitle:    'Due to price regulation, these stations sell Premium fuel at the regular fuel price',
-        heading:     n => `Station list (${n} stations)`,
-        link:        'Details',
-        toggle:      'HR',
-        filter:      'Search stations…',
-        gasoline:    'Eurosuper 95 Class Plus Premium',
-        diesel:      'Eurodiesel Class Plus Premium',
-        home:        'Home',
-        themeSystem: 'Theme: System',
-        themeLight:  'Theme: Light',
-        themeDark:   'Theme: Dark',
+        title:    'INA stations with Premium fuel at regular price',
+        subtitle: 'Due to price regulation, these stations sell Premium fuel at the regular fuel price',
+        heading:  n => `Station list (${n} stations)`,
+        link:     'Details',
+        toggle:   'HR',
+        filter:   'Search stations…',
+        gasoline: 'Eurosuper 95 Class Plus Premium',
+        diesel:   'Eurodiesel Class Plus Premium',
+        home:     'Home',
       },
     };
 
-    const THEME_ICONS = {
-      system: `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
-      light:  `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.78" y2="4.22"/></svg>`,
-      dark:   `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`,
-    };
-
-    const THEME_CYCLE = ['system', 'light', 'dark'];
-
-    const TILES = {
-      light: {
-        url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      },
-      dark: {
-        url: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>',
-      },
-    };
-
-    let lang      = localStorage.getItem('lang')      || 'hr';
-    let fuelType  = localStorage.getItem('fuelType')  || 'gasoline';
-    let theme     = localStorage.getItem('theme')     || 'system';
+    let lang      = localStorage.getItem('lang') || 'hr';
+    let fuelType  = localStorage.getItem('fuelType') || 'gasoline';
     let stationsData = [];
     let markers = [];
     let activeIndex = -1;
@@ -388,38 +300,10 @@
     const map = L.map('map', { zoomControl: false }).setView([45.1, 16.4], 7);
     L.control.zoom({ position: 'topright' }).addTo(map);
     requestAnimationFrame(() => map.invalidateSize());
-
-    let tileLayer = null;
-
-    function getEffectiveTheme() {
-      if (theme === 'system') {
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      }
-      return theme;
-    }
-
-    function applyTheme() {
-      const effective = getEffectiveTheme();
-      document.documentElement.setAttribute('data-theme', effective);
-
-      const tileConf = TILES[effective];
-      if (tileLayer) map.removeLayer(tileLayer);
-      tileLayer = L.tileLayer(tileConf.url, { attribution: tileConf.attribution, maxZoom: 19 }).addTo(map);
-
-      const btn = document.getElementById('theme-toggle');
-      btn.innerHTML = THEME_ICONS[theme];
-      btn.title = I18N[lang]['theme' + theme.charAt(0).toUpperCase() + theme.slice(1)];
-    }
-
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-      if (theme === 'system') applyTheme();
-    });
-
-    document.getElementById('theme-toggle').addEventListener('click', () => {
-      theme = THEME_CYCLE[(THEME_CYCLE.indexOf(theme) + 1) % THEME_CYCLE.length];
-      localStorage.setItem('theme', theme);
-      applyTheme();
-    });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 19,
+    }).addTo(map);
 
     function applyLang() {
       const t = I18N[lang];
@@ -429,8 +313,7 @@
       document.getElementById('lang-toggle').textContent   = t.toggle;
       document.getElementById('list-heading').textContent  = t.heading(stationsData.length);
       document.getElementById('filter').placeholder        = t.filter;
-      document.getElementById('i18n-home').textContent     = t.home;
-      document.getElementById('theme-toggle').title        = t['theme' + theme.charAt(0).toUpperCase() + theme.slice(1)];
+      document.getElementById('i18n-home').textContent    = t.home;
       document.querySelectorAll('#fuel-select option').forEach(o => {
         o.textContent = t[o.value];
       });
@@ -545,7 +428,6 @@
     fuelSelect.value = fuelType;
     fuelSelect.addEventListener('change', e => loadFuel(e.target.value));
 
-    applyTheme();
     applyLang();
     loadFuel(fuelType);
   </script>
