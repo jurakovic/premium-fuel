@@ -54,6 +54,12 @@
     "lng": "14.788325"
   },
   {
+    "name": "Opatija-grad",
+    "url": "https://www.ina.hr/station/opatija-grad/",
+    "lat": "45.332949",
+    "lng": "14.302866"
+  },
+  {
     "name": "Preko",
     "url": "https://www.ina.hr/station/preko/",
     "lat": "44.07648",
@@ -106,12 +112,6 @@
     "url": "https://www.ina.hr/station/split-obala/",
     "lat": "43.505585",
     "lng": "16.431548"
-  },
-  {
-    "name": "Sv. Ivan Žabno",
-    "url": "https://www.ina.hr/station/sv-ivan-zabno/",
-    "lat": "45.945419",
-    "lng": "16.606488"
   },
   {
     "name": "Trogir-marina",
