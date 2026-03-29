@@ -1,0 +1,49 @@
+name: Update Stations
+
+permissions:
+  contents: write
+
+on:
+  schedule:
+    - cron: '20 21 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: '${{ github.ref_name }}'
+          fetch-depth: 0
+
+      - name: Git Config
+        run: |
+          git config core.fileMode false
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        shell: bash
+
+      - name: Update
+        run: |
+          npm ci --ignore-scripts
+
+          echo "Before:"
+          echo "  premium-gasoline: $(jq 'length' docs/premium-gasoline.json) stations"
+          echo "  premium-diesel:   $(jq 'length' docs/premium-diesel.json) stations"
+
+          node parse.js
+
+          echo "After:"
+          echo "  premium-gasoline: $(jq 'length' docs/premium-gasoline.json) stations"
+          echo "  premium-diesel:   $(jq 'length' docs/premium-diesel.json) stations"
+
+          git status -s
+          git add .
+          git diff --cached --quiet --exit-code
+          if [ $? -eq 0 ]; then echo "No git changes"; exit 0; fi
+
+          git commit -m "Update Stations"
+          git push
+        shell: bash {0}
