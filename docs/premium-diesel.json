@@ -96,6 +96,12 @@
     "lng": "14.371391"
   },
   {
+    "name": "Rijeka-Vežica",
+    "url": "https://www.ina.hr/station/rijeka-vezica/",
+    "lat": "45.325514",
+    "lng": "14.47763"
+  },
+  {
     "name": "Šibenik-obala",
     "url": "https://www.ina.hr/station/sibenik-obala/",
     "lat": "43.733142",
@@ -106,6 +112,12 @@
     "url": "https://www.ina.hr/station/split-obala/",
     "lat": "43.505585",
     "lng": "16.431548"
+  },
+  {
+    "name": "Trogir-marina",
+    "url": "https://www.ina.hr/station/trogir-marina/",
+    "lat": "43.513164",
+    "lng": "16.24628"
   },
   {
     "name": "Vodice-marina",

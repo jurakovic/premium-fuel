@@ -24,10 +24,22 @@
     "lng": "13.967568"
   },
   {
+    "name": "Čakovec-Zrinsko-Frankopanska",
+    "url": "https://www.ina.hr/station/cakovec-zrinsko-frankopanska/",
+    "lat": "46.387849",
+    "lng": "16.41593"
+  },
+  {
     "name": "Cres-marina",
     "url": "https://www.ina.hr/station/cres-marina/",
     "lat": "44.9509102514",
     "lng": "14.4146582795"
+  },
+  {
+    "name": "Donji Miholjac-jug",
+    "url": "https://www.ina.hr/station/donji-miholjac-jug/",
+    "lat": "45.759903341",
+    "lng": "18.1832504816"
   },
   {
     "name": "Dubrovnik-grad",
@@ -84,6 +96,12 @@
     "lng": "18.1889186087"
   },
   {
+    "name": "Kutina-Krešimirova",
+    "url": "https://www.ina.hr/station/kutina-kresimirova/",
+    "lat": "45.477599",
+    "lng": "16.779447"
+  },
+  {
     "name": "Lepenica",
     "url": "https://www.ina.hr/station/lepenica/",
     "lat": "45.326471",
@@ -106,6 +124,12 @@
     "url": "https://www.ina.hr/station/mali-losinj-obala/",
     "lat": "44.53391",
     "lng": "14.463354"
+  },
+  {
+    "name": "Marsonija-sjever",
+    "url": "https://www.ina.hr/station/marsonija-sjever/",
+    "lat": "45.181216",
+    "lng": "18.006713"
   },
   {
     "name": "Milna-marina",
@@ -178,6 +202,12 @@
     "url": "https://www.ina.hr/station/rascane-gornje/",
     "lat": "43.3211725078",
     "lng": "17.1673170867"
+  },
+  {
+    "name": "Rastovica",
+    "url": "https://www.ina.hr/station/rastovica/",
+    "lat": "45.109345",
+    "lng": "18.685543"
   },
   {
     "name": "Rijeka-Školjić",
@@ -276,6 +306,12 @@
     "lng": "15.763031"
   },
   {
+    "name": "Trogir-marina",
+    "url": "https://www.ina.hr/station/trogir-marina/",
+    "lat": "43.513164",
+    "lng": "16.24628"
+  },
+  {
     "name": "Vela Luka",
     "url": "https://www.ina.hr/station/vela-luka/",
     "lat": "42.9616485435",
@@ -288,10 +324,22 @@
     "lng": "17.665162"
   },
   {
+    "name": "Velika Gorica",
+    "url": "https://www.ina.hr/station/velika-gorica/",
+    "lat": "45.719003",
+    "lng": "16.054222"
+  },
+  {
     "name": "Velika Mlaka-jug",
     "url": "https://www.ina.hr/station/velika-mlaka-jug/",
     "lat": "45.731308",
     "lng": "16.021947"
+  },
+  {
+    "name": "Vidovec",
+    "url": "https://www.ina.hr/station/vidovec/",
+    "lat": "46.287107",
+    "lng": "16.253405"
   },
   {
     "name": "Vodice-marina",
@@ -306,16 +354,58 @@
     "lng": "14.161327"
   },
   {
+    "name": "Zagreb-Dugave-zapad",
+    "url": "https://www.ina.hr/station/zagreb-dugave-zapad/",
+    "lat": "45.769547",
+    "lng": "15.990592"
+  },
+  {
+    "name": "Zagreb-Kranjčevićeva",
+    "url": "https://www.ina.hr/station/zagreb-kranjceviceva/",
+    "lat": "45.803755",
+    "lng": "15.959228"
+  },
+  {
+    "name": "Zagreb-Ksaver",
+    "url": "https://www.ina.hr/station/zagreb-ksaver/",
+    "lat": "45.833359",
+    "lng": "15.978234"
+  },
+  {
+    "name": "Zagreb-Langov trg",
+    "url": "https://www.ina.hr/station/zagreb-langov-trg/",
+    "lat": "45.814559",
+    "lng": "15.9817"
+  },
+  {
+    "name": "Zagreb-Miramarska",
+    "url": "https://www.ina.hr/station/zagreb-miramarska/",
+    "lat": "45.801646",
+    "lng": "15.974539"
+  },
+  {
     "name": "Zagreb-Resnik",
     "url": "https://www.ina.hr/station/zagreb-resnik/",
     "lat": "45.801168",
     "lng": "16.058524"
   },
   {
+    "name": "Zagreb-Selska",
+    "url": "https://www.ina.hr/station/zagreb-selska/",
+    "lat": "45.799642",
+    "lng": "15.943052"
+  },
+  {
     "name": "Zagreb-sjever",
     "url": "https://www.ina.hr/station/lucko-sjever/",
     "lat": "45.773884",
     "lng": "15.881926"
+  },
+  {
+    "name": "Zagreb-Špansko",
+    "url": "https://www.ina.hr/station/zagreb-spansko/",
+    "lat": "45.797142",
+    "lng": "15.897138"
   },
   {
     "name": "Zagreb-Stupnik-zapad",
