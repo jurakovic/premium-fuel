@@ -28,7 +28,16 @@ jobs:
       - name: Update
         run: |
           npm ci --ignore-scripts
+
+          echo "Before:"
+          echo "  premium-gasoline: $(jq 'length' docs/premium-gasoline.json) stations"
+          echo "  premium-diesel:   $(jq 'length' docs/premium-diesel.json) stations"
+
           node parse.js
+
+          echo "After:"
+          echo "  premium-gasoline: $(jq 'length' docs/premium-gasoline.json) stations"
+          echo "  premium-diesel:   $(jq 'length' docs/premium-diesel.json) stations"
 
           git status -s
           git add .
