@@ -6,10 +6,10 @@
     "lng": "13.748572"
   },
   {
-    "name": "Biograd na Moru-Zagrebačka",
-    "url": "https://www.ina.hr/station/biograd-na-moru-zagrebacka/",
-    "lat": "43.940431",
-    "lng": "15.448116"
+    "name": "Biograd na Moru-obala",
+    "url": "https://www.ina.hr/station/biograd-na-moru-obala/",
+    "lat": "43.938762",
+    "lng": "15.43982"
   },
   {
     "name": "Bol",
@@ -46,12 +46,6 @@
     "url": "https://www.ina.hr/station/hvar/",
     "lat": "43.166225",
     "lng": "16.445057"
-  },
-  {
-    "name": "Jezera-marina",
-    "url": "https://www.ina.hr/station/jezera-marina/",
-    "lat": "43.7843315482",
-    "lng": "15.6433358371"
   },
   {
     "name": "Kaldanija",
@@ -96,40 +90,16 @@
     "lng": "17.015763"
   },
   {
-    "name": "Makarska-Ratac",
-    "url": "https://www.ina.hr/station/makarska-ratac/",
-    "lat": "43.306819",
-    "lng": "17.007086"
-  },
-  {
-    "name": "Mali Lošinj-obala",
-    "url": "https://www.ina.hr/station/mali-losinj-obala/",
-    "lat": "44.53391",
-    "lng": "14.463354"
-  },
-  {
     "name": "Milna-marina",
     "url": "https://www.ina.hr/station/milna-marina/",
     "lat": "43.327145",
     "lng": "16.443256"
   },
   {
-    "name": "Murter",
-    "url": "https://www.ina.hr/station/murter/",
-    "lat": "43.8245037784",
-    "lng": "15.5939976884"
-  },
-  {
     "name": "Novalja-Špital",
     "url": "https://www.ina.hr/station/novalja-spital/",
     "lat": "44.547253",
     "lng": "14.893886"
-  },
-  {
-    "name": "Novi Vinodolski – obala",
-    "url": "https://www.ina.hr/station/novi-vinodolski-obala/",
-    "lat": "45.125938",
-    "lng": "14.788325"
   },
   {
     "name": "Omiš",
@@ -168,30 +138,6 @@
     "lng": "13.8474952237"
   },
   {
-    "name": "Rab-obala",
-    "url": "https://www.ina.hr/station/rab-obala/",
-    "lat": "44.757722",
-    "lng": "14.763417"
-  },
-  {
-    "name": "Rašćane Gornje",
-    "url": "https://www.ina.hr/station/rascane-gornje/",
-    "lat": "43.3211725078",
-    "lng": "17.1673170867"
-  },
-  {
-    "name": "Rijeka-Školjić",
-    "url": "https://www.ina.hr/station/rijeka-skoljic/",
-    "lat": "45.328173",
-    "lng": "14.448035"
-  },
-  {
-    "name": "Rupa",
-    "url": "https://www.ina.hr/station/rupa/",
-    "lat": "45.474352",
-    "lng": "14.283998"
-  },
-  {
     "name": "Šibenik-obala",
     "url": "https://www.ina.hr/station/sibenik-obala/",
     "lat": "43.733142",
@@ -210,12 +156,6 @@
     "lng": "16.642235"
   },
   {
-    "name": "Sisak-Zagrebačka",
-    "url": "https://www.ina.hr/station/sisak-zagrebacka/",
-    "lat": "45.4989",
-    "lng": "16.352874"
-  },
-  {
     "name": "Sokolac Jug",
     "url": "https://www.ina.hr/station/sokolac-sjever/",
     "lat": "45.007005",
@@ -232,18 +172,6 @@
     "url": "https://www.ina.hr/station/solin-meterize/",
     "lat": "43.531983",
     "lng": "16.486708"
-  },
-  {
-    "name": "Split-Kman-jug",
-    "url": "https://www.ina.hr/station/split-kman-jug/",
-    "lat": "43.519786",
-    "lng": "16.454545"
-  },
-  {
-    "name": "Split-Kopilica-sjever",
-    "url": "https://www.ina.hr/station/split-kopilica-sjever/",
-    "lat": "43.521628",
-    "lng": "16.454131"
   },
   {
     "name": "Split-obala",
@@ -282,45 +210,15 @@
     "lng": "16.7149940776"
   },
   {
-    "name": "Velika",
-    "url": "https://www.ina.hr/station/velika/",
-    "lat": "45.44345",
-    "lng": "17.665162"
-  },
-  {
-    "name": "Velika Mlaka-jug",
-    "url": "https://www.ina.hr/station/velika-mlaka-jug/",
-    "lat": "45.731308",
-    "lng": "16.021947"
-  },
-  {
-    "name": "Vodice-marina",
-    "url": "https://www.ina.hr/station/vodice-marina/",
-    "lat": "43.757314196",
-    "lng": "15.7805303403"
-  },
-  {
     "name": "Vozilići",
     "url": "https://www.ina.hr/station/vozilici/",
     "lat": "45.15636",
     "lng": "14.161327"
   },
   {
-    "name": "Zagreb-Resnik",
-    "url": "https://www.ina.hr/station/zagreb-resnik/",
-    "lat": "45.801168",
-    "lng": "16.058524"
-  },
-  {
     "name": "Zagreb-sjever",
     "url": "https://www.ina.hr/station/lucko-sjever/",
     "lat": "45.773884",
     "lng": "15.881926"
-  },
-  {
-    "name": "Zagreb-Stupnik-zapad",
-    "url": "https://www.ina.hr/station/zagreb-stupnik-zapad/",
-    "lat": "45.771534",
-    "lng": "15.936342"
   }
 ]
