@@ -6,22 +6,10 @@
     "lng": "13.748572"
   },
   {
-    "name": "Biograd na Moru-obala",
-    "url": "https://www.ina.hr/station/biograd-na-moru-obala/",
-    "lat": "43.938762",
-    "lng": "15.43982"
-  },
-  {
     "name": "Bol",
     "url": "https://www.ina.hr/station/bol/",
     "lat": "43.260436",
     "lng": "16.654488"
-  },
-  {
-    "name": "Buzet",
-    "url": "https://www.ina.hr/station/buzet/",
-    "lat": "45.40886",
-    "lng": "13.967568"
   },
   {
     "name": "Cres-marina",
@@ -30,22 +18,10 @@
     "lng": "14.4146582795"
   },
   {
-    "name": "Dubrovnik-grad",
-    "url": "https://www.ina.hr/station/dubrovnik-grad/",
-    "lat": "42.648892",
-    "lng": "18.095116"
-  },
-  {
     "name": "Galižana-zapad",
     "url": "https://www.ina.hr/station/galizana-zapad/",
     "lat": "44.93373",
     "lng": "13.889404"
-  },
-  {
-    "name": "Hvar",
-    "url": "https://www.ina.hr/station/hvar/",
-    "lat": "43.166225",
-    "lng": "16.445057"
   },
   {
     "name": "Kaldanija",
@@ -64,12 +40,6 @@
     "url": "https://www.ina.hr/station/kozjak-sjever/",
     "lat": "43.587643",
     "lng": "16.460512"
-  },
-  {
-    "name": "Krapina-jug",
-    "url": "https://www.ina.hr/station/krapina-jug/",
-    "lat": "46.160439",
-    "lng": "15.876235"
   },
   {
     "name": "Kupari",
@@ -114,12 +84,6 @@
     "lng": "15.0619237833"
   },
   {
-    "name": "Poreč-Vukovarska",
-    "url": "https://www.ina.hr/station/porec-vukovarska/",
-    "lat": "45.2258194369",
-    "lng": "13.6017140881"
-  },
-  {
     "name": "Prokljan-jug",
     "url": "https://www.ina.hr/station/prokljan-jug/",
     "lat": "43.856069",
@@ -138,52 +102,16 @@
     "lng": "13.8474952237"
   },
   {
-    "name": "Šibenik-obala",
-    "url": "https://www.ina.hr/station/sibenik-obala/",
-    "lat": "43.733142",
-    "lng": "15.891416"
-  },
-  {
     "name": "Šibenik-Ražine-zapad",
     "url": "https://www.ina.hr/station/sibenik-razine-zapad/",
     "lat": "43.711067",
     "lng": "15.912469"
   },
   {
-    "name": "Sinj",
-    "url": "https://www.ina.hr/station/sinj/",
-    "lat": "43.704",
-    "lng": "16.642235"
-  },
-  {
-    "name": "Sokolac Jug",
-    "url": "https://www.ina.hr/station/sokolac-sjever/",
-    "lat": "45.007005",
-    "lng": "15.128788"
-  },
-  {
     "name": "Sokolac Sjever",
     "url": "https://www.ina.hr/station/sokolac-jug/",
     "lat": "45.006016",
     "lng": "15.127416"
-  },
-  {
-    "name": "Solin-Meterize",
-    "url": "https://www.ina.hr/station/solin-meterize/",
-    "lat": "43.531983",
-    "lng": "16.486708"
-  },
-  {
-    "name": "Split-obala",
-    "url": "https://www.ina.hr/station/split-obala/",
-    "lat": "43.505585",
-    "lng": "16.431548"
-  },
-  {
-    "name": "Split-Smokovik",
-    "url": "https://www.ina.hr/station/split-smokovik/",
-    "lat": "43.523104",
-    "lng": "16.487022"
   },
   {
     "name": "Starigrad-Paklenica",

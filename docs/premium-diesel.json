@@ -12,12 +12,6 @@
     "lng": "14.4146582795"
   },
   {
-    "name": "Hvar",
-    "url": "https://www.ina.hr/station/hvar/",
-    "lat": "43.166225",
-    "lng": "16.445057"
-  },
-  {
     "name": "Makarska-obala",
     "url": "https://www.ina.hr/station/makarska-obala/",
     "lat": "43.294866",
@@ -54,33 +48,9 @@
     "lng": "13.8474952237"
   },
   {
-    "name": "Rijeka-Kantrida-sjever",
-    "url": "https://www.ina.hr/station/rijeka-kantrida-sjever/",
-    "lat": "45.342058",
-    "lng": "14.371391"
-  },
-  {
-    "name": "Šibenik-obala",
-    "url": "https://www.ina.hr/station/sibenik-obala/",
-    "lat": "43.733142",
-    "lng": "15.891416"
-  },
-  {
-    "name": "Split-obala",
-    "url": "https://www.ina.hr/station/split-obala/",
-    "lat": "43.505585",
-    "lng": "16.431548"
-  },
-  {
     "name": "Vozilići",
     "url": "https://www.ina.hr/station/vozilici/",
     "lat": "45.15636",
     "lng": "14.161327"
-  },
-  {
-    "name": "Zadar-Voštarnica",
-    "url": "https://www.ina.hr/station/zadar-vostarnica/",
-    "lat": "44.118043",
-    "lng": "15.228679"
   }
 ]
