@@ -1,27 +1,9 @@
 [
   {
-    "name": "Bol",
-    "url": "https://www.ina.hr/station/bol/",
-    "lat": "43.260436",
-    "lng": "16.654488"
-  },
-  {
     "name": "Cres-marina",
     "url": "https://www.ina.hr/station/cres-marina/",
     "lat": "44.9509102514",
     "lng": "14.4146582795"
-  },
-  {
-    "name": "Makarska-obala",
-    "url": "https://www.ina.hr/station/makarska-obala/",
-    "lat": "43.294866",
-    "lng": "17.015763"
-  },
-  {
-    "name": "Milna-marina",
-    "url": "https://www.ina.hr/station/milna-marina/",
-    "lat": "43.327145",
-    "lng": "16.443256"
   },
   {
     "name": "Opatija-grad",
@@ -40,12 +22,6 @@
     "url": "https://www.ina.hr/station/prokljan-sjever/",
     "lat": "43.8563572767",
     "lng": "15.8468319235"
-  },
-  {
-    "name": "Pula-obala",
-    "url": "https://www.ina.hr/station/pula-obala/",
-    "lat": "44.8732650371",
-    "lng": "13.8474952237"
   },
   {
     "name": "Vozilići",

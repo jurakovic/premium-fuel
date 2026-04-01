@@ -1,17 +1,5 @@
 [
   {
-    "name": "Baderna",
-    "url": "https://www.ina.hr/station/baderna/",
-    "lat": "45.213793",
-    "lng": "13.748572"
-  },
-  {
-    "name": "Bol",
-    "url": "https://www.ina.hr/station/bol/",
-    "lat": "43.260436",
-    "lng": "16.654488"
-  },
-  {
     "name": "Cres-marina",
     "url": "https://www.ina.hr/station/cres-marina/",
     "lat": "44.9509102514",
@@ -22,12 +10,6 @@
     "url": "https://www.ina.hr/station/galizana-zapad/",
     "lat": "44.93373",
     "lng": "13.889404"
-  },
-  {
-    "name": "Kaldanija",
-    "url": "https://www.ina.hr/station/kaldanija/",
-    "lat": "45.451705",
-    "lng": "13.636745"
   },
   {
     "name": "Kozjak-jug",
@@ -42,12 +24,6 @@
     "lng": "16.460512"
   },
   {
-    "name": "Kupari",
-    "url": "https://www.ina.hr/station/kupari/",
-    "lat": "42.6234891829",
-    "lng": "18.1889186087"
-  },
-  {
     "name": "Lepenica",
     "url": "https://www.ina.hr/station/lepenica/",
     "lat": "45.326471",
@@ -58,24 +34,6 @@
     "url": "https://www.ina.hr/station/makarska-obala/",
     "lat": "43.294866",
     "lng": "17.015763"
-  },
-  {
-    "name": "Milna-marina",
-    "url": "https://www.ina.hr/station/milna-marina/",
-    "lat": "43.327145",
-    "lng": "16.443256"
-  },
-  {
-    "name": "Novalja-Špital",
-    "url": "https://www.ina.hr/station/novalja-spital/",
-    "lat": "44.547253",
-    "lng": "14.893886"
-  },
-  {
-    "name": "Omiš",
-    "url": "https://www.ina.hr/station/omis/",
-    "lat": "43.44272",
-    "lng": "16.683192"
   },
   {
     "name": "Pag",
@@ -96,46 +54,10 @@
     "lng": "15.8468319235"
   },
   {
-    "name": "Pula-obala",
-    "url": "https://www.ina.hr/station/pula-obala/",
-    "lat": "44.8732650371",
-    "lng": "13.8474952237"
-  },
-  {
-    "name": "Šibenik-Ražine-zapad",
-    "url": "https://www.ina.hr/station/sibenik-razine-zapad/",
-    "lat": "43.711067",
-    "lng": "15.912469"
-  },
-  {
-    "name": "Sokolac Sjever",
-    "url": "https://www.ina.hr/station/sokolac-jug/",
-    "lat": "45.006016",
-    "lng": "15.127416"
-  },
-  {
-    "name": "Starigrad-Paklenica",
-    "url": "https://www.ina.hr/station/starigrad-paklenica/",
-    "lat": "44.287615",
-    "lng": "15.448693"
-  },
-  {
     "name": "Supetar-Žedno Drage",
     "url": "https://www.ina.hr/station/supetar-zedno-drage/",
     "lat": "43.3792613",
     "lng": "16.5578412"
-  },
-  {
-    "name": "Sveta Nedelja",
-    "url": "https://www.ina.hr/station/sveta-nedelja/",
-    "lat": "45.796924",
-    "lng": "15.763031"
-  },
-  {
-    "name": "Vela Luka",
-    "url": "https://www.ina.hr/station/vela-luka/",
-    "lat": "42.9616485435",
-    "lng": "16.7149940776"
   },
   {
     "name": "Vozilići",
