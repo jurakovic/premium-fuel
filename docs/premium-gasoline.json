@@ -1,11 +1,5 @@
 [
   {
-    "name": "Cres-marina",
-    "url": "https://www.ina.hr/station/cres-marina/",
-    "lat": "44.9509102514",
-    "lng": "14.4146582795"
-  },
-  {
     "name": "Galižana-zapad",
     "url": "https://www.ina.hr/station/galizana-zapad/",
     "lat": "44.93373",
@@ -36,34 +30,10 @@
     "lng": "17.015763"
   },
   {
-    "name": "Pag",
-    "url": "https://www.ina.hr/station/pag/",
-    "lat": "44.4413414122",
-    "lng": "15.0619237833"
-  },
-  {
     "name": "Prokljan-jug",
     "url": "https://www.ina.hr/station/prokljan-jug/",
     "lat": "43.856069",
     "lng": "15.845194"
-  },
-  {
-    "name": "Prokljan-sjever",
-    "url": "https://www.ina.hr/station/prokljan-sjever/",
-    "lat": "43.8563572767",
-    "lng": "15.8468319235"
-  },
-  {
-    "name": "Supetar-Žedno Drage",
-    "url": "https://www.ina.hr/station/supetar-zedno-drage/",
-    "lat": "43.3792613",
-    "lng": "16.5578412"
-  },
-  {
-    "name": "Vozilići",
-    "url": "https://www.ina.hr/station/vozilici/",
-    "lat": "45.15636",
-    "lng": "14.161327"
   },
   {
     "name": "Zagreb-sjever",

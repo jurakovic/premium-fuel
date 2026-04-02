@@ -1,11 +1,5 @@
 [
   {
-    "name": "Cres-marina",
-    "url": "https://www.ina.hr/station/cres-marina/",
-    "lat": "44.9509102514",
-    "lng": "14.4146582795"
-  },
-  {
     "name": "Opatija-grad",
     "url": "https://www.ina.hr/station/opatija-grad/",
     "lat": "45.332949",
@@ -16,17 +10,5 @@
     "url": "https://www.ina.hr/station/prokljan-jug/",
     "lat": "43.856069",
     "lng": "15.845194"
-  },
-  {
-    "name": "Prokljan-sjever",
-    "url": "https://www.ina.hr/station/prokljan-sjever/",
-    "lat": "43.8563572767",
-    "lng": "15.8468319235"
-  },
-  {
-    "name": "Vozilići",
-    "url": "https://www.ina.hr/station/vozilici/",
-    "lat": "45.15636",
-    "lng": "14.161327"
   }
 ]
