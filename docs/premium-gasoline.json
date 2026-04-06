@@ -1,23 +1,5 @@
 [
   {
-    "name": "Galižana-zapad",
-    "url": "https://www.ina.hr/station/galizana-zapad/",
-    "lat": "44.93373",
-    "lng": "13.889404"
-  },
-  {
-    "name": "Kozjak-jug",
-    "url": "https://www.ina.hr/station/kozjak-jug/",
-    "lat": "43.586278",
-    "lng": "16.457421"
-  },
-  {
-    "name": "Kozjak-sjever",
-    "url": "https://www.ina.hr/station/kozjak-sjever/",
-    "lat": "43.587643",
-    "lng": "16.460512"
-  },
-  {
     "name": "Lepenica",
     "url": "https://www.ina.hr/station/lepenica/",
     "lat": "45.326471",
@@ -28,12 +10,6 @@
     "url": "https://www.ina.hr/station/makarska-obala/",
     "lat": "43.294866",
     "lng": "17.015763"
-  },
-  {
-    "name": "Prokljan-jug",
-    "url": "https://www.ina.hr/station/prokljan-jug/",
-    "lat": "43.856069",
-    "lng": "15.845194"
   },
   {
     "name": "Zagreb-sjever",
