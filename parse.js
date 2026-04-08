@@ -10,6 +10,11 @@ const PREMIUM_GASOLINE_FILE = 'docs/premium-gasoline.json';
 const PREMIUM_DIESEL_FILE   = 'docs/premium-diesel.json';
 const HISTORY_FILE          = 'docs/history.json';
 
+// Stations to check for temporary closure (stale data / PRIVREMENO ZATVORENO)
+const CHECK_CLOSURE = new Set([
+    'lucko-sjever',
+]);
+
 const GASOLINE_BASIC = new Set([
     "1000298", // Eurosuper 95
     "1002498", // Eurosuper 95 Class Plus
@@ -28,6 +33,21 @@ const DIESEL_BASIC = new Set([
 const DIESEL_PREMIUM = new Set([
     "1002835", // Eurodiesel Class Plus Premium
 ]);
+
+async function isTemporarilyClosed(url) {
+    const slug = url.replace(/^https?:\/\/[^/]+\/station\//, '').replace(/\/$/, '');
+    if (!CHECK_CLOSURE.has(slug)) return false;
+
+    const html = await fetch(url, {
+        headers: {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0'
+        }
+    }).then(r => r.text());
+
+    const dom = new JSDOM(html);
+    const table = dom.window.document.querySelector('table.station__info__tablebox__table');
+    return table?.textContent.includes('PRIVREMENO ZATVORENO') ?? false;
+}
 
 async function ensureHtml() {
     if (fs.existsSync(HTML_FILE)) {
@@ -99,11 +119,25 @@ function toOutput(s) {
         console.log(`Parsed ${stations.length} stations`);
         console.log(`JSON saved to ${JSON_FILE}`);
 
-        const premiumGasoline = stations.filter(hasOnlyPremiumGasoline);
+        const premiumGasoline = [];
+        for (const s of stations.filter(hasOnlyPremiumGasoline)) {
+            if (await isTemporarilyClosed(s.url)) {
+                console.log(`Skipping temporarily closed station: ${s.title}`);
+            } else {
+                premiumGasoline.push(s);
+            }
+        }
         fs.writeFileSync(PREMIUM_GASOLINE_FILE, JSON.stringify(premiumGasoline.map(toOutput), null, 2), 'utf8');
         console.log(`${premiumGasoline.length} premium-gasoline stations saved to ${PREMIUM_GASOLINE_FILE}`);
 
-        const premiumDiesel = stations.filter(hasOnlyPremiumDiesel);
+        const premiumDiesel = [];
+        for (const s of stations.filter(hasOnlyPremiumDiesel)) {
+            if (await isTemporarilyClosed(s.url)) {
+                console.log(`Skipping temporarily closed station: ${s.title}`);
+            } else {
+                premiumDiesel.push(s);
+            }
+        }
         fs.writeFileSync(PREMIUM_DIESEL_FILE, JSON.stringify(premiumDiesel.map(toOutput), null, 2), 'utf8');
         console.log(`${premiumDiesel.length} premium-diesel stations saved to ${PREMIUM_DIESEL_FILE}`);
 
