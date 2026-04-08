@@ -150,12 +150,17 @@
       cursor: pointer;
       user-select: none;
       list-style: none;
-      padding: 2px 0;
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--input-bg);
     }
+    #trend-details summary:hover { color: var(--text); background: var(--hover-bg); }
     #trend-details summary::-webkit-details-marker { display: none; }
-    #trend-details summary::after { content: ' ▾'; font-size: 0.7rem; }
-    #trend-details[open] summary::after { content: ' ▴'; font-size: 0.7rem; }
-    #trend-chart { padding-top: 4px; }
+    #trend-details summary::after { content: ' ▾'; font-size: 0.9rem; }
+    #trend-details[open] summary::after { content: ' ▴'; font-size: 0.9rem; }
+    #trend-details[open] summary { border-bottom: none; border-radius: 4px 4px 0 0; }
+    #trend-chart { border: 1px solid var(--border); border-top: none; border-radius: 0 0 4px 4px; padding: 6px 6px 2px; }
     #trend-svg { display: block; overflow: visible; }
     #trend-tip {
       display: none;
@@ -411,7 +416,7 @@
         <option value="diesel"></option>
       </select>
       <p id="list-heading"></p>
-      <details id="trend-details" open>
+      <details id="trend-details">
         <summary id="trend-summary">Trend</summary>
         <div id="trend-chart"><svg id="trend-svg" width="100%" xmlns="http://www.w3.org/2000/svg"></svg></div>
       </details>
