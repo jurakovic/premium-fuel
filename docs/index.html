@@ -140,6 +140,12 @@
       flex-shrink: 0;
     }
 
+    #trend-chart {
+      margin-bottom: 10px;
+      flex-shrink: 0;
+    }
+    #trend-svg { display: block; overflow: visible; }
+
     #filter {
       width: 100%;
       padding: 7px 10px;
@@ -378,6 +384,7 @@
         <option value="diesel"></option>
       </select>
       <p id="list-heading"></p>
+      <div id="trend-chart"><svg id="trend-svg" width="100%" xmlns="http://www.w3.org/2000/svg"></svg></div>
       <input id="filter" type="search" />
       <ul id="station-list"></ul>
       <footer>
@@ -611,6 +618,7 @@
       fuelType = type;
       localStorage.setItem('fuelType', type);
       document.getElementById('filter').value = '';
+      renderTrend();
       fetch(`premium-${type}.json`)
         .then(r => r.json())
         .then(data => {
@@ -631,6 +639,45 @@
     const fuelSelect = document.getElementById('fuel-select');
     fuelSelect.value = fuelType;
     fuelSelect.addEventListener('change', e => loadFuel(e.target.value));
+
+    let historyData = [];
+
+    function renderTrend() {
+      const svg = document.getElementById('trend-svg');
+      const data = historyData;
+      if (!data || data.length < 2) { svg.removeAttribute('viewBox'); svg.innerHTML = ''; return; }
+
+      const counts = data.map(d => d[fuelType]);
+      const n = counts.length;
+      const maxV = Math.max(...counts, 1);
+
+      const W = 400, H = 60;
+      const pl = 4, pr = 30, pt = 6, pb = 18;
+      const pw = W - pl - pr, ph = H - pt - pb;
+
+      const cx = i => pl + (n === 1 ? pw / 2 : (i / (n - 1)) * pw);
+      const cy = v => pt + (1 - v / maxV) * ph;
+
+      const pts = counts.map((v, i) => `${cx(i).toFixed(1)},${cy(v).toFixed(1)}`).join(' ');
+
+      const lastCx = cx(n - 1), lastCy = cy(counts[n - 1]);
+      const firstCx = cx(0),    firstCy = cy(counts[0]);
+
+      svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+      svg.innerHTML = `
+        <polyline points="${pts}" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+        ${counts.map((v, i) => `<circle cx="${cx(i).toFixed(1)}" cy="${cy(v).toFixed(1)}" r="2.5" fill="var(--accent)"/>`).join('')}
+        <text x="${pl}" y="${H}" fill="var(--text-muted)" font-size="9" text-anchor="start" font-family="system-ui,sans-serif">${data[0].date.slice(5)}</text>
+        <text x="${pl + pw}" y="${H}" fill="var(--text-muted)" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">${data[n - 1].date.slice(5)}</text>
+        <text x="${firstCx}" y="${firstCy - 4}" fill="var(--text-muted)" font-size="9" text-anchor="start" font-family="system-ui,sans-serif">${counts[0]}</text>
+        <text x="${lastCx + 4}" y="${lastCy + 4}" fill="var(--accent)" font-size="10" font-weight="600" text-anchor="start" font-family="system-ui,sans-serif">${counts[n - 1]}</text>
+      `;
+    }
+
+    fetch('history.json')
+      .then(r => r.json())
+      .then(data => { historyData = data; renderTrend(); })
+      .catch(() => {});
 
     applyTheme();
     applyLang();

@@ -8,6 +8,7 @@ const HTML_FILE = 'ina.html';
 const JSON_FILE = 'ina.json';
 const PREMIUM_GASOLINE_FILE = 'docs/premium-gasoline.json';
 const PREMIUM_DIESEL_FILE   = 'docs/premium-diesel.json';
+const HISTORY_FILE          = 'docs/history.json';
 
 const GASOLINE_BASIC = new Set([
     "1000298", // Eurosuper 95
@@ -105,6 +106,16 @@ function toOutput(s) {
         const premiumDiesel = stations.filter(hasOnlyPremiumDiesel);
         fs.writeFileSync(PREMIUM_DIESEL_FILE, JSON.stringify(premiumDiesel.map(toOutput), null, 2), 'utf8');
         console.log(`${premiumDiesel.length} premium-diesel stations saved to ${PREMIUM_DIESEL_FILE}`);
+
+        const today = new Date().toISOString().slice(0, 10);
+        const history = fs.existsSync(HISTORY_FILE)
+            ? JSON.parse(fs.readFileSync(HISTORY_FILE, 'utf8'))
+            : [];
+        if (!history.some(h => h.date === today)) {
+            history.push({ date: today, gasoline: premiumGasoline.length, diesel: premiumDiesel.length });
+            fs.writeFileSync(HISTORY_FILE, JSON.stringify(history, null, 2), 'utf8');
+            console.log(`History updated: ${today} gasoline=${premiumGasoline.length} diesel=${premiumDiesel.length}`);
+        }
     } catch (err) {
         console.error(err.message);
         process.exit(1);
