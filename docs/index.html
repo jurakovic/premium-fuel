@@ -690,27 +690,44 @@
       const maxV = Math.max(...counts, 1);
 
       const W = 400, H = 200;
-      const pl = 4, pr = 30, pt = 8, pb = 20;
+      const pl = 26, pr = 30, pt = 8, pb = 24;
       const pw = W - pl - pr, ph = H - pt - pb;
 
+      // Compute nice Y-axis ticks
+      const candidates = [1, 2, 5, 10, 15, 20, 25, 50];
+      const raw = maxV / 4;
+      const step = candidates.find(c => c >= raw) || Math.ceil(raw / 10) * 10;
+      const ticks = [];
+      for (let v = 0; ; v += step) { ticks.push(v); if (v >= maxV) break; }
+      const scaleMax = ticks[ticks.length - 1];
+
       const cx = i => pl + (n === 1 ? pw / 2 : (i / (n - 1)) * pw);
-      const cy = v => pt + (1 - v / maxV) * ph;
+      const cy = v => pt + (1 - v / scaleMax) * ph;
 
       const pts = counts.map((v, i) => `${cx(i).toFixed(1)},${cy(v).toFixed(1)}`).join(' ');
-
       const lastCx = cx(n - 1), lastCy = cy(counts[n - 1]);
-      const firstCx = cx(0),    firstCy = cy(counts[0]);
 
       summary.textContent = `Trend  ${counts[0]} → ${counts[n - 1]}`;
 
+      const gridLines = ticks.map(t => `
+        <line x1="${pl}" y1="${cy(t).toFixed(1)}" x2="${pl + pw}" y2="${cy(t).toFixed(1)}" stroke="var(--border)" stroke-width="0.5"/>
+        <text x="${pl - 4}" y="${(cy(t) + 3).toFixed(1)}" fill="var(--text-muted)" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">${t}</text>
+      `).join('');
+
+      const xTicks = counts.map((_, i) => `
+        <line x1="${cx(i).toFixed(1)}" y1="${(pt + ph).toFixed(1)}" x2="${cx(i).toFixed(1)}" y2="${(pt + ph + 4).toFixed(1)}" stroke="var(--border)" stroke-width="1"/>
+      `).join('');
+
       svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
       svg.innerHTML = `
+        ${gridLines}
+        <line x1="${pl}" y1="${(pt + ph).toFixed(1)}" x2="${pl + pw}" y2="${(pt + ph).toFixed(1)}" stroke="var(--border)" stroke-width="0.5"/>
+        ${xTicks}
+        <text x="${cx(0).toFixed(1)}" y="${(pt + ph + 15).toFixed(1)}" fill="var(--text-muted)" font-size="9" text-anchor="middle" font-family="system-ui,sans-serif">${data[0].date.slice(5)}</text>
+        <text x="${cx(n - 1).toFixed(1)}" y="${(pt + ph + 15).toFixed(1)}" fill="var(--text-muted)" font-size="9" text-anchor="middle" font-family="system-ui,sans-serif">${data[n - 1].date.slice(5)}</text>
         <polyline points="${pts}" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
         ${counts.map((v, i) => `<circle cx="${cx(i).toFixed(1)}" cy="${cy(v).toFixed(1)}" r="2.5" fill="var(--accent)"/><circle cx="${cx(i).toFixed(1)}" cy="${cy(v).toFixed(1)}" r="8" fill="transparent" data-i="${i}"/>`).join('')}
-        <text x="${pl}" y="${H}" fill="var(--text-muted)" font-size="9" text-anchor="start" font-family="system-ui,sans-serif">${data[0].date.slice(5)}</text>
-        <text x="${pl + pw}" y="${H}" fill="var(--text-muted)" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">${data[n - 1].date.slice(5)}</text>
-        <text x="${firstCx}" y="${firstCy - 5}" fill="var(--text-muted)" font-size="9" text-anchor="start" font-family="system-ui,sans-serif">${counts[0]}</text>
-        <text x="${lastCx + 4}" y="${lastCy + 4}" fill="var(--accent)" font-size="10" font-weight="600" text-anchor="start" font-family="system-ui,sans-serif">${counts[n - 1]}</text>
+        <text x="${lastCx + 4}" y="${(lastCy + 4).toFixed(1)}" fill="var(--accent)" font-size="10" font-weight="600" text-anchor="start" font-family="system-ui,sans-serif">${counts[n - 1]}</text>
       `;
 
       svg.querySelectorAll('circle[data-i]').forEach(circle => {
