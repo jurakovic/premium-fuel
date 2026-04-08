@@ -140,6 +140,44 @@
       flex-shrink: 0;
     }
 
+    #trend-details {
+      margin-bottom: 10px;
+      flex-shrink: 0;
+    }
+    #trend-details summary {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      user-select: none;
+      list-style: none;
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--input-bg);
+    }
+    #trend-details summary:hover { color: var(--text); background: var(--hover-bg); }
+    #trend-details summary::-webkit-details-marker { display: none; }
+    #trend-details summary::after { content: ' ▾'; font-size: 0.9rem; }
+    #trend-details[open] summary::after { content: ' ▴'; font-size: 0.9rem; }
+    #trend-details[open] summary { border-bottom: none; border-radius: 4px 4px 0 0; }
+    #trend-chart { border: 1px solid var(--border); border-top: none; border-radius: 0 0 4px 4px; padding: 6px 6px 2px; }
+    #trend-svg { display: block; overflow: visible; }
+    #trend-tip {
+      display: none;
+      position: fixed;
+      background: var(--list-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 0.75rem;
+      color: var(--text);
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 9999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transform: translateX(-50%);
+    }
+
     #filter {
       width: 100%;
       padding: 7px 10px;
@@ -378,6 +416,10 @@
         <option value="diesel"></option>
       </select>
       <p id="list-heading"></p>
+      <details id="trend-details">
+        <summary id="trend-summary">Trend</summary>
+        <div id="trend-chart"><svg id="trend-svg" width="100%" xmlns="http://www.w3.org/2000/svg"></svg></div>
+      </details>
       <input id="filter" type="search" />
       <ul id="station-list"></ul>
       <footer>
@@ -408,6 +450,7 @@
     <div id="map"></div>
   </div>
 
+  <div id="trend-tip"></div>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     const I18N = {
@@ -611,6 +654,7 @@
       fuelType = type;
       localStorage.setItem('fuelType', type);
       document.getElementById('filter').value = '';
+      renderTrend();
       fetch(`premium-${type}.json`)
         .then(r => r.json())
         .then(data => {
@@ -631,6 +675,82 @@
     const fuelSelect = document.getElementById('fuel-select');
     fuelSelect.value = fuelType;
     fuelSelect.addEventListener('change', e => loadFuel(e.target.value));
+
+    let historyData = [];
+
+    function renderTrend() {
+      const svg = document.getElementById('trend-svg');
+      const summary = document.getElementById('trend-summary');
+      const tip = document.getElementById('trend-tip');
+      const data = historyData;
+      if (!data || data.length < 2) { svg.removeAttribute('viewBox'); svg.innerHTML = ''; return; }
+
+      const counts = data.map(d => d[fuelType]);
+      const n = counts.length;
+      const maxV = Math.max(...counts, 1);
+
+      const W = 400, H = 200;
+      const pl = 26, pr = 30, pt = 8, pb = 24;
+      const pw = W - pl - pr, ph = H - pt - pb;
+
+      // Compute nice Y-axis ticks
+      const candidates = [1, 2, 5, 10, 15, 20, 25, 50];
+      const raw = maxV / 4;
+      const step = candidates.find(c => c >= raw) || Math.ceil(raw / 10) * 10;
+      const ticks = [];
+      for (let v = 0; ; v += step) { ticks.push(v); if (v >= maxV) break; }
+      const scaleMax = ticks[ticks.length - 1];
+
+      const cx = i => pl + (n === 1 ? pw / 2 : (i / (n - 1)) * pw);
+      const cy = v => pt + (1 - v / scaleMax) * ph;
+
+      const pts = counts.map((v, i) => `${cx(i).toFixed(1)},${cy(v).toFixed(1)}`).join(' ');
+      const lastCx = cx(n - 1), lastCy = cy(counts[n - 1]);
+
+      summary.textContent = `Trend  ${counts[0]} → ${counts[n - 1]}`;
+
+      const gridLines = ticks.map(t => `
+        <line x1="${pl}" y1="${cy(t).toFixed(1)}" x2="${pl + pw}" y2="${cy(t).toFixed(1)}" stroke="var(--border)" stroke-width="0.5"/>
+        <text x="${pl - 4}" y="${(cy(t) + 3).toFixed(1)}" fill="var(--text-muted)" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">${t}</text>
+      `).join('');
+
+      const xTicks = counts.map((_, i) => `
+        <line x1="${cx(i).toFixed(1)}" y1="${(pt + ph).toFixed(1)}" x2="${cx(i).toFixed(1)}" y2="${(pt + ph + 4).toFixed(1)}" stroke="var(--border)" stroke-width="1"/>
+      `).join('');
+
+      svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+      svg.innerHTML = `
+        ${gridLines}
+        <line x1="${pl}" y1="${(pt + ph).toFixed(1)}" x2="${pl + pw}" y2="${(pt + ph).toFixed(1)}" stroke="var(--border)" stroke-width="0.5"/>
+        ${xTicks}
+        <text x="${cx(0).toFixed(1)}" y="${(pt + ph + 15).toFixed(1)}" fill="var(--text-muted)" font-size="9" text-anchor="middle" font-family="system-ui,sans-serif">${data[0].date.slice(8) + '.' + data[0].date.slice(5, 7) + '.'}</text>
+        <text x="${cx(n - 1).toFixed(1)}" y="${(pt + ph + 15).toFixed(1)}" fill="var(--text-muted)" font-size="9" text-anchor="middle" font-family="system-ui,sans-serif">${data[n - 1].date.slice(8) + '.' + data[n - 1].date.slice(5, 7) + '.'}</text>
+        <polyline points="${pts}" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+        ${counts.map((v, i) => `<circle cx="${cx(i).toFixed(1)}" cy="${cy(v).toFixed(1)}" r="2.5" fill="var(--accent)"/><circle cx="${cx(i).toFixed(1)}" cy="${cy(v).toFixed(1)}" r="8" fill="transparent" data-i="${i}"/>`).join('')}
+        <text x="${lastCx + 4}" y="${(lastCy + 4).toFixed(1)}" fill="var(--accent)" font-size="10" font-weight="600" text-anchor="start" font-family="system-ui,sans-serif">${counts[n - 1]}</text>
+      `;
+
+      svg.querySelectorAll('circle[data-i]').forEach(circle => {
+        const i = parseInt(circle.getAttribute('data-i'));
+        circle.style.cursor = 'default';
+        circle.addEventListener('mouseenter', e => {
+          const d = data[i].date; tip.textContent = `${d.slice(8)}.${d.slice(5, 7)}.${d.slice(0, 4)}: ${counts[i]}`;
+          tip.style.display = 'block';
+          tip.style.left = e.clientX + 'px';
+          tip.style.top = (e.clientY - 36) + 'px';
+        });
+        circle.addEventListener('mousemove', e => {
+          tip.style.left = e.clientX + 'px';
+          tip.style.top = (e.clientY - 36) + 'px';
+        });
+        circle.addEventListener('mouseleave', () => { tip.style.display = 'none'; });
+      });
+    }
+
+    fetch('history.json')
+      .then(r => r.json())
+      .then(data => { historyData = data; renderTrend(); })
+      .catch(() => {});
 
     applyTheme();
     applyLang();
