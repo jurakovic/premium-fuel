@@ -140,11 +140,38 @@
       flex-shrink: 0;
     }
 
-    #trend-chart {
+    #trend-details {
       margin-bottom: 10px;
       flex-shrink: 0;
     }
+    #trend-details summary {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      user-select: none;
+      list-style: none;
+      padding: 2px 0;
+    }
+    #trend-details summary::-webkit-details-marker { display: none; }
+    #trend-details summary::after { content: ' ▾'; font-size: 0.7rem; }
+    #trend-details[open] summary::after { content: ' ▴'; font-size: 0.7rem; }
+    #trend-chart { padding-top: 4px; }
     #trend-svg { display: block; overflow: visible; }
+    #trend-tip {
+      display: none;
+      position: fixed;
+      background: var(--list-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 0.75rem;
+      color: var(--text);
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 9999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transform: translateX(-50%);
+    }
 
     #filter {
       width: 100%;
@@ -384,7 +411,10 @@
         <option value="diesel"></option>
       </select>
       <p id="list-heading"></p>
-      <div id="trend-chart"><svg id="trend-svg" width="100%" xmlns="http://www.w3.org/2000/svg"></svg></div>
+      <details id="trend-details" open>
+        <summary id="trend-summary">Trend</summary>
+        <div id="trend-chart"><svg id="trend-svg" width="100%" xmlns="http://www.w3.org/2000/svg"></svg></div>
+      </details>
       <input id="filter" type="search" />
       <ul id="station-list"></ul>
       <footer>
@@ -415,6 +445,7 @@
     <div id="map"></div>
   </div>
 
+  <div id="trend-tip"></div>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     const I18N = {
@@ -644,6 +675,8 @@
 
     function renderTrend() {
       const svg = document.getElementById('trend-svg');
+      const summary = document.getElementById('trend-summary');
+      const tip = document.getElementById('trend-tip');
       const data = historyData;
       if (!data || data.length < 2) { svg.removeAttribute('viewBox'); svg.innerHTML = ''; return; }
 
@@ -651,8 +684,8 @@
       const n = counts.length;
       const maxV = Math.max(...counts, 1);
 
-      const W = 400, H = 60;
-      const pl = 4, pr = 30, pt = 6, pb = 18;
+      const W = 400, H = 200;
+      const pl = 4, pr = 30, pt = 8, pb = 20;
       const pw = W - pl - pr, ph = H - pt - pb;
 
       const cx = i => pl + (n === 1 ? pw / 2 : (i / (n - 1)) * pw);
@@ -663,15 +696,33 @@
       const lastCx = cx(n - 1), lastCy = cy(counts[n - 1]);
       const firstCx = cx(0),    firstCy = cy(counts[0]);
 
+      summary.textContent = `Trend  ${counts[0]} → ${counts[n - 1]}`;
+
       svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
       svg.innerHTML = `
         <polyline points="${pts}" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
-        ${counts.map((v, i) => `<circle cx="${cx(i).toFixed(1)}" cy="${cy(v).toFixed(1)}" r="2.5" fill="var(--accent)"/>`).join('')}
+        ${counts.map((v, i) => `<circle cx="${cx(i).toFixed(1)}" cy="${cy(v).toFixed(1)}" r="2.5" fill="var(--accent)"/><circle cx="${cx(i).toFixed(1)}" cy="${cy(v).toFixed(1)}" r="8" fill="transparent" data-i="${i}"/>`).join('')}
         <text x="${pl}" y="${H}" fill="var(--text-muted)" font-size="9" text-anchor="start" font-family="system-ui,sans-serif">${data[0].date.slice(5)}</text>
         <text x="${pl + pw}" y="${H}" fill="var(--text-muted)" font-size="9" text-anchor="end" font-family="system-ui,sans-serif">${data[n - 1].date.slice(5)}</text>
-        <text x="${firstCx}" y="${firstCy - 4}" fill="var(--text-muted)" font-size="9" text-anchor="start" font-family="system-ui,sans-serif">${counts[0]}</text>
+        <text x="${firstCx}" y="${firstCy - 5}" fill="var(--text-muted)" font-size="9" text-anchor="start" font-family="system-ui,sans-serif">${counts[0]}</text>
         <text x="${lastCx + 4}" y="${lastCy + 4}" fill="var(--accent)" font-size="10" font-weight="600" text-anchor="start" font-family="system-ui,sans-serif">${counts[n - 1]}</text>
       `;
+
+      svg.querySelectorAll('circle[data-i]').forEach(circle => {
+        const i = parseInt(circle.getAttribute('data-i'));
+        circle.style.cursor = 'default';
+        circle.addEventListener('mouseenter', e => {
+          tip.textContent = `${data[i].date}: ${counts[i]}`;
+          tip.style.display = 'block';
+          tip.style.left = e.clientX + 'px';
+          tip.style.top = (e.clientY - 36) + 'px';
+        });
+        circle.addEventListener('mousemove', e => {
+          tip.style.left = e.clientX + 'px';
+          tip.style.top = (e.clientY - 36) + 'px';
+        });
+        circle.addEventListener('mouseleave', () => { tip.style.display = 'none'; });
+      });
     }
 
     fetch('history.json')
