@@ -723,8 +723,8 @@
         ${gridLines}
         <line x1="${pl}" y1="${(pt + ph).toFixed(1)}" x2="${pl + pw}" y2="${(pt + ph).toFixed(1)}" stroke="var(--border)" stroke-width="0.5"/>
         ${xTicks}
-        <text x="${cx(0).toFixed(1)}" y="${(pt + ph + 15).toFixed(1)}" fill="var(--text-muted)" font-size="9" text-anchor="middle" font-family="system-ui,sans-serif">${data[0].date.slice(5)}</text>
-        <text x="${cx(n - 1).toFixed(1)}" y="${(pt + ph + 15).toFixed(1)}" fill="var(--text-muted)" font-size="9" text-anchor="middle" font-family="system-ui,sans-serif">${data[n - 1].date.slice(5)}</text>
+        <text x="${cx(0).toFixed(1)}" y="${(pt + ph + 15).toFixed(1)}" fill="var(--text-muted)" font-size="9" text-anchor="middle" font-family="system-ui,sans-serif">${data[0].date.slice(8) + '.' + data[0].date.slice(5, 7) + '.'}</text>
+        <text x="${cx(n - 1).toFixed(1)}" y="${(pt + ph + 15).toFixed(1)}" fill="var(--text-muted)" font-size="9" text-anchor="middle" font-family="system-ui,sans-serif">${data[n - 1].date.slice(8) + '.' + data[n - 1].date.slice(5, 7) + '.'}</text>
         <polyline points="${pts}" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
         ${counts.map((v, i) => `<circle cx="${cx(i).toFixed(1)}" cy="${cy(v).toFixed(1)}" r="2.5" fill="var(--accent)"/><circle cx="${cx(i).toFixed(1)}" cy="${cy(v).toFixed(1)}" r="8" fill="transparent" data-i="${i}"/>`).join('')}
         <text x="${lastCx + 4}" y="${(lastCy + 4).toFixed(1)}" fill="var(--accent)" font-size="10" font-weight="600" text-anchor="start" font-family="system-ui,sans-serif">${counts[n - 1]}</text>
@@ -734,7 +734,7 @@
         const i = parseInt(circle.getAttribute('data-i'));
         circle.style.cursor = 'default';
         circle.addEventListener('mouseenter', e => {
-          tip.textContent = `${data[i].date}: ${counts[i]}`;
+          const d = data[i].date; tip.textContent = `${d.slice(8)}.${d.slice(5, 7)}.${d.slice(0, 4)}: ${counts[i]}`;
           tip.style.display = 'block';
           tip.style.left = e.clientX + 'px';
           tip.style.top = (e.clientY - 36) + 'px';
