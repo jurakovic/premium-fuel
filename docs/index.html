@@ -534,9 +534,10 @@
     let activeIndex = -1;
     let snapshotDate = null;   // null = show current (latest date)
 
-    const map = L.map('map', { zoomControl: false }).setView([45.1, 16.4], 7);
+    const CROATIA_BOUNDS = [[42.4, 13.5], [46.6, 19.4]];
+    const map = L.map('map', { zoomControl: false, zoomSnap: 0 });
     L.control.zoom({ position: 'topright' }).addTo(map);
-    requestAnimationFrame(() => map.invalidateSize());
+    requestAnimationFrame(() => { map.invalidateSize(); map.fitBounds(CROATIA_BOUNDS, { padding: [10, 10] }); });
 
     let tileLayer = null;
 
@@ -704,10 +705,6 @@
       buildMarkers();
       buildList();
       applyLang();
-      if (stationsData.length > 0) {
-        const bounds = L.latLngBounds(stationsData.map(s => [parseFloat(s.lat), parseFloat(s.lng)]));
-        map.fitBounds(bounds, { padding: [40, 40] });
-      }
     }
 
     document.getElementById('snapshot-reset').addEventListener('click', () => applySnapshot(null));
