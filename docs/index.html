@@ -537,6 +537,22 @@
     const CROATIA_BOUNDS = [[42.4, 13.5], [46.6, 19.4]];
     const map = L.map('map', { zoomControl: false, zoomSnap: 0 });
     L.control.zoom({ position: 'topright' }).addTo(map);
+
+    const resetControl = L.Control.extend({
+      options: { position: 'topright' },
+      onAdd() {
+        const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+        const btn = L.DomUtil.create('a', '', container);
+        btn.title = 'Reset view';
+        btn.href = '#';
+        btn.style.cssText = 'display:flex;align-items:center;justify-content:center;';
+        btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>';
+        L.DomEvent.on(btn, 'click', e => { L.DomEvent.stopPropagation(e); map.fitBounds(CROATIA_BOUNDS, { padding: [10, 10] }); });
+        return container;
+      }
+    });
+    new resetControl().addTo(map);
+
     requestAnimationFrame(() => { map.invalidateSize(); map.fitBounds(CROATIA_BOUNDS, { padding: [10, 10] }); });
 
     let tileLayer = null;
