@@ -9,6 +9,7 @@ const JSON_FILE = 'ina.json';
 const PREMIUM_GASOLINE_FILE = 'docs/premium-gasoline.json';
 const PREMIUM_DIESEL_FILE   = 'docs/premium-diesel.json';
 const HISTORY_FILE          = 'docs/history.json';
+const HISTORY_FULL_FILE     = 'docs/history-full.json';
 
 // Stations to check for temporary closure (stale data / PRIVREMENO ZATVORENO)
 const CHECK_CLOSURE = new Set([
@@ -101,12 +102,8 @@ function hasOnlyPremiumDiesel(station) {
     return hasPremium && !hasBasic;
 }
 
-function mergeWithHistory(activeStations, existingFile, today) {
-    const existing = fs.existsSync(existingFile)
-        ? JSON.parse(fs.readFileSync(existingFile, 'utf8'))
-        : [];
-
-    const registry = new Map(existing.map(s => [s.url, s]));
+function mergeHistoryFull(activeStations, existingRegistry, today) {
+    const registry = new Map(existingRegistry.map(s => [s.url, s]));
 
     for (const s of activeStations) {
         if (registry.has(s.url)) {
@@ -144,8 +141,7 @@ function mergeWithHistory(activeStations, existingFile, today) {
                 premiumGasoline.push(s);
             }
         }
-        const gasolineOutput = mergeWithHistory(premiumGasoline, PREMIUM_GASOLINE_FILE, today);
-        fs.writeFileSync(PREMIUM_GASOLINE_FILE, JSON.stringify(gasolineOutput, null, 2), 'utf8');
+        fs.writeFileSync(PREMIUM_GASOLINE_FILE, JSON.stringify(premiumGasoline.map(s => ({ name: s.title, url: s.url, lat: s.lat, lng: s.lng })), null, 2), 'utf8');
         console.log(`${premiumGasoline.length} premium-gasoline stations saved to ${PREMIUM_GASOLINE_FILE}`);
 
         const premiumDiesel = [];
@@ -156,9 +152,16 @@ function mergeWithHistory(activeStations, existingFile, today) {
                 premiumDiesel.push(s);
             }
         }
-        const dieselOutput = mergeWithHistory(premiumDiesel, PREMIUM_DIESEL_FILE, today);
-        fs.writeFileSync(PREMIUM_DIESEL_FILE, JSON.stringify(dieselOutput, null, 2), 'utf8');
+        fs.writeFileSync(PREMIUM_DIESEL_FILE, JSON.stringify(premiumDiesel.map(s => ({ name: s.title, url: s.url, lat: s.lat, lng: s.lng })), null, 2), 'utf8');
         console.log(`${premiumDiesel.length} premium-diesel stations saved to ${PREMIUM_DIESEL_FILE}`);
+
+        const historyFull = fs.existsSync(HISTORY_FULL_FILE)
+            ? JSON.parse(fs.readFileSync(HISTORY_FULL_FILE, 'utf8'))
+            : { gasoline: [], diesel: [] };
+        historyFull.gasoline = mergeHistoryFull(premiumGasoline, historyFull.gasoline, today);
+        historyFull.diesel   = mergeHistoryFull(premiumDiesel,   historyFull.diesel,   today);
+        fs.writeFileSync(HISTORY_FULL_FILE, JSON.stringify(historyFull, null, 2), 'utf8');
+        console.log(`History-full updated for ${today}`);
 
         const history = fs.existsSync(HISTORY_FILE)
             ? JSON.parse(fs.readFileSync(HISTORY_FILE, 'utf8'))

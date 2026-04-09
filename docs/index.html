@@ -528,7 +528,7 @@
     let lang      = localStorage.getItem('lang')      || 'hr';
     let fuelType  = localStorage.getItem('fuelType')  || 'gasoline';
     let theme     = localStorage.getItem('theme')     || 'system';
-    let allStations = [];      // all-time registry (with dates[])
+    let allStations = [];      // current active stations (from premium-*.json)
     let stationsData = [];     // currently displayed subset
     let markers = [];
     let activeIndex = -1;
@@ -680,15 +680,14 @@
       });
     });
 
+    let historyFull = { gasoline: [], diesel: [] };
+
     function applySnapshot(date) {
       snapshotDate = date;
       if (date === null) {
-        const latestDate = historyData.length > 0
-          ? historyData[historyData.length - 1].date
-          : allStations.reduce((max, s) => s.dates.length && s.dates[s.dates.length - 1] > max ? s.dates[s.dates.length - 1] : max, '');
-        stationsData = allStations.filter(s => s.dates.includes(latestDate));
+        stationsData = [...allStations];
       } else {
-        stationsData = allStations.filter(s => s.dates.includes(date));
+        stationsData = historyFull[fuelType].filter(s => s.dates.includes(date));
       }
 
       const banner = document.getElementById('snapshot-banner');
@@ -813,6 +812,11 @@
     fetch('history.json')
       .then(r => r.json())
       .then(data => { historyData = data; renderTrend(); })
+      .catch(() => {});
+
+    fetch('history-full.json')
+      .then(r => r.json())
+      .then(data => { historyFull = data; })
       .catch(() => {});
 
     applyTheme();
