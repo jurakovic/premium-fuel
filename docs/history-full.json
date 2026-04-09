@@ -1,0 +1,1119 @@
+{
+  "gasoline": [
+    {
+      "name": "Baderna",
+      "url": "https://www.ina.hr/station/baderna/",
+      "lat": "45.213793",
+      "lng": "13.748572",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "name": "Biograd na Moru-obala",
+      "url": "https://www.ina.hr/station/biograd-na-moru-obala/",
+      "lat": "43.938762",
+      "lng": "15.43982",
+      "dates": [
+        "2026-03-30"
+      ]
+    },
+    {
+      "name": "Biograd na Moru-Zagrebačka",
+      "url": "https://www.ina.hr/station/biograd-na-moru-zagrebacka/",
+      "lat": "43.940431",
+      "lng": "15.448116",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Bol",
+      "url": "https://www.ina.hr/station/bol/",
+      "lat": "43.260436",
+      "lng": "16.654488",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "name": "Buzet",
+      "url": "https://www.ina.hr/station/buzet/",
+      "lat": "45.40886",
+      "lng": "13.967568",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30"
+      ]
+    },
+    {
+      "name": "Cres-marina",
+      "url": "https://www.ina.hr/station/cres-marina/",
+      "lat": "44.9509102514",
+      "lng": "14.4146582795",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31",
+        "2026-04-01"
+      ]
+    },
+    {
+      "name": "Čakovec-Zrinsko-Frankopanska",
+      "url": "https://www.ina.hr/station/cakovec-zrinsko-frankopanska/",
+      "lat": "46.387849",
+      "lng": "16.41593",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
+      ]
+    },
+    {
+      "name": "Donji Miholjac-jug",
+      "url": "https://www.ina.hr/station/donji-miholjac-jug/",
+      "lat": "45.759903341",
+      "lng": "18.1832504816",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
+      ]
+    },
+    {
+      "name": "Dubrovnik-grad",
+      "url": "https://www.ina.hr/station/dubrovnik-grad/",
+      "lat": "42.648892",
+      "lng": "18.095116",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30"
+      ]
+    },
+    {
+      "name": "Galižana-zapad",
+      "url": "https://www.ina.hr/station/galizana-zapad/",
+      "lat": "44.93373",
+      "lng": "13.889404",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31",
+        "2026-04-01",
+        "2026-04-02"
+      ]
+    },
+    {
+      "name": "Hvar",
+      "url": "https://www.ina.hr/station/hvar/",
+      "lat": "43.166225",
+      "lng": "16.445057",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30"
+      ]
+    },
+    {
+      "name": "Jezera-marina",
+      "url": "https://www.ina.hr/station/jezera-marina/",
+      "lat": "43.7843315482",
+      "lng": "15.6433358371",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Kaldanija",
+      "url": "https://www.ina.hr/station/kaldanija/",
+      "lat": "45.451705",
+      "lng": "13.636745",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "name": "Kozjak-jug",
+      "url": "https://www.ina.hr/station/kozjak-jug/",
+      "lat": "43.586278",
+      "lng": "16.457421",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31",
+        "2026-04-01",
+        "2026-04-02"
+      ]
+    },
+    {
+      "name": "Kozjak-sjever",
+      "url": "https://www.ina.hr/station/kozjak-sjever/",
+      "lat": "43.587643",
+      "lng": "16.460512",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31",
+        "2026-04-01",
+        "2026-04-02"
+      ]
+    },
+    {
+      "name": "Krapina-jug",
+      "url": "https://www.ina.hr/station/krapina-jug/",
+      "lat": "46.160439",
+      "lng": "15.876235",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30"
+      ]
+    },
+    {
+      "name": "Kupari",
+      "url": "https://www.ina.hr/station/kupari/",
+      "lat": "42.6234891829",
+      "lng": "18.1889186087",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "name": "Kutina-Krešimirova",
+      "url": "https://www.ina.hr/station/kutina-kresimirova/",
+      "lat": "45.477599",
+      "lng": "16.779447",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
+      ]
+    },
+    {
+      "name": "Lepenica",
+      "url": "https://www.ina.hr/station/lepenica/",
+      "lat": "45.326471",
+      "lng": "14.65661",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31",
+        "2026-04-01",
+        "2026-04-02",
+        "2026-04-06"
+      ]
+    },
+    {
+      "name": "Makarska-obala",
+      "url": "https://www.ina.hr/station/makarska-obala/",
+      "lat": "43.294866",
+      "lng": "17.015763",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31",
+        "2026-04-01",
+        "2026-04-02",
+        "2026-04-06",
+        "2026-04-07",
+        "2026-04-08"
+      ]
+    },
+    {
+      "name": "Makarska-Ratac",
+      "url": "https://www.ina.hr/station/makarska-ratac/",
+      "lat": "43.306819",
+      "lng": "17.007086",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Mali Lošinj-obala",
+      "url": "https://www.ina.hr/station/mali-losinj-obala/",
+      "lat": "44.53391",
+      "lng": "14.463354",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Marsonija-sjever",
+      "url": "https://www.ina.hr/station/marsonija-sjever/",
+      "lat": "45.181216",
+      "lng": "18.006713",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
+      ]
+    },
+    {
+      "name": "Milna-marina",
+      "url": "https://www.ina.hr/station/milna-marina/",
+      "lat": "43.327145",
+      "lng": "16.443256",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "name": "Murter",
+      "url": "https://www.ina.hr/station/murter/",
+      "lat": "43.8245037784",
+      "lng": "15.5939976884",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Novalja-Špital",
+      "url": "https://www.ina.hr/station/novalja-spital/",
+      "lat": "44.547253",
+      "lng": "14.893886",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "name": "Novi Vinodolski – obala",
+      "url": "https://www.ina.hr/station/novi-vinodolski-obala/",
+      "lat": "45.125938",
+      "lng": "14.788325",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Omiš",
+      "url": "https://www.ina.hr/station/omis/",
+      "lat": "43.44272",
+      "lng": "16.683192",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "name": "Pag",
+      "url": "https://www.ina.hr/station/pag/",
+      "lat": "44.4413414122",
+      "lng": "15.0619237833",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31",
+        "2026-04-01"
+      ]
+    },
+    {
+      "name": "Poreč-Vukovarska",
+      "url": "https://www.ina.hr/station/porec-vukovarska/",
+      "lat": "45.2258194369",
+      "lng": "13.6017140881",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30"
+      ]
+    },
+    {
+      "name": "Prokljan-jug",
+      "url": "https://www.ina.hr/station/prokljan-jug/",
+      "lat": "43.856069",
+      "lng": "15.845194",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31",
+        "2026-04-01",
+        "2026-04-02"
+      ]
+    },
+    {
+      "name": "Prokljan-sjever",
+      "url": "https://www.ina.hr/station/prokljan-sjever/",
+      "lat": "43.8563572767",
+      "lng": "15.8468319235",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31",
+        "2026-04-01"
+      ]
+    },
+    {
+      "name": "Pula-obala",
+      "url": "https://www.ina.hr/station/pula-obala/",
+      "lat": "44.8732650371",
+      "lng": "13.8474952237",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "name": "Rab-obala",
+      "url": "https://www.ina.hr/station/rab-obala/",
+      "lat": "44.757722",
+      "lng": "14.763417",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Rastovica",
+      "url": "https://www.ina.hr/station/rastovica/",
+      "lat": "45.109345",
+      "lng": "18.685543",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
+      ]
+    },
+    {
+      "name": "Rašćane Gornje",
+      "url": "https://www.ina.hr/station/rascane-gornje/",
+      "lat": "43.3211725078",
+      "lng": "17.1673170867",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Rijeka-Školjić",
+      "url": "https://www.ina.hr/station/rijeka-skoljic/",
+      "lat": "45.328173",
+      "lng": "14.448035",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Rupa",
+      "url": "https://www.ina.hr/station/rupa/",
+      "lat": "45.474352",
+      "lng": "14.283998",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Sinj",
+      "url": "https://www.ina.hr/station/sinj/",
+      "lat": "43.704",
+      "lng": "16.642235",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30"
+      ]
+    },
+    {
+      "name": "Sisak-Zagrebačka",
+      "url": "https://www.ina.hr/station/sisak-zagrebacka/",
+      "lat": "45.4989",
+      "lng": "16.352874",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Sokolac Jug",
+      "url": "https://www.ina.hr/station/sokolac-sjever/",
+      "lat": "45.007005",
+      "lng": "15.128788",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30"
+      ]
+    },
+    {
+      "name": "Sokolac Sjever",
+      "url": "https://www.ina.hr/station/sokolac-jug/",
+      "lat": "45.006016",
+      "lng": "15.127416",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "name": "Solin-Meterize",
+      "url": "https://www.ina.hr/station/solin-meterize/",
+      "lat": "43.531983",
+      "lng": "16.486708",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30"
+      ]
+    },
+    {
+      "name": "Split-Kman-jug",
+      "url": "https://www.ina.hr/station/split-kman-jug/",
+      "lat": "43.519786",
+      "lng": "16.454545",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Split-Kopilica-sjever",
+      "url": "https://www.ina.hr/station/split-kopilica-sjever/",
+      "lat": "43.521628",
+      "lng": "16.454131",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Split-obala",
+      "url": "https://www.ina.hr/station/split-obala/",
+      "lat": "43.505585",
+      "lng": "16.431548",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30"
+      ]
+    },
+    {
+      "name": "Split-Smokovik",
+      "url": "https://www.ina.hr/station/split-smokovik/",
+      "lat": "43.523104",
+      "lng": "16.487022",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30"
+      ]
+    },
+    {
+      "name": "Starigrad-Paklenica",
+      "url": "https://www.ina.hr/station/starigrad-paklenica/",
+      "lat": "44.287615",
+      "lng": "15.448693",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "name": "Supetar-Žedno Drage",
+      "url": "https://www.ina.hr/station/supetar-zedno-drage/",
+      "lat": "43.3792613",
+      "lng": "16.5578412",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31",
+        "2026-04-01"
+      ]
+    },
+    {
+      "name": "Sveta Nedelja",
+      "url": "https://www.ina.hr/station/sveta-nedelja/",
+      "lat": "45.796924",
+      "lng": "15.763031",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "name": "Šibenik-obala",
+      "url": "https://www.ina.hr/station/sibenik-obala/",
+      "lat": "43.733142",
+      "lng": "15.891416",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30"
+      ]
+    },
+    {
+      "name": "Šibenik-Ražine-zapad",
+      "url": "https://www.ina.hr/station/sibenik-razine-zapad/",
+      "lat": "43.711067",
+      "lng": "15.912469",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "name": "Trogir-marina",
+      "url": "https://www.ina.hr/station/trogir-marina/",
+      "lat": "43.513164",
+      "lng": "16.24628",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
+      ]
+    },
+    {
+      "name": "Vela Luka",
+      "url": "https://www.ina.hr/station/vela-luka/",
+      "lat": "42.9616485435",
+      "lng": "16.7149940776",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "name": "Velika",
+      "url": "https://www.ina.hr/station/velika/",
+      "lat": "45.44345",
+      "lng": "17.665162",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Velika Gorica",
+      "url": "https://www.ina.hr/station/velika-gorica/",
+      "lat": "45.719003",
+      "lng": "16.054222",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
+      ]
+    },
+    {
+      "name": "Velika Mlaka-jug",
+      "url": "https://www.ina.hr/station/velika-mlaka-jug/",
+      "lat": "45.731308",
+      "lng": "16.021947",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Vidovec",
+      "url": "https://www.ina.hr/station/vidovec/",
+      "lat": "46.287107",
+      "lng": "16.253405",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
+      ]
+    },
+    {
+      "name": "Vodice-marina",
+      "url": "https://www.ina.hr/station/vodice-marina/",
+      "lat": "43.757314196",
+      "lng": "15.7805303403",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Vozilići",
+      "url": "https://www.ina.hr/station/vozilici/",
+      "lat": "45.15636",
+      "lng": "14.161327",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31",
+        "2026-04-01"
+      ]
+    },
+    {
+      "name": "Zagreb-Dugave-zapad",
+      "url": "https://www.ina.hr/station/zagreb-dugave-zapad/",
+      "lat": "45.769547",
+      "lng": "15.990592",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
+      ]
+    },
+    {
+      "name": "Zagreb-Kranjčevićeva",
+      "url": "https://www.ina.hr/station/zagreb-kranjceviceva/",
+      "lat": "45.803755",
+      "lng": "15.959228",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
+      ]
+    },
+    {
+      "name": "Zagreb-Ksaver",
+      "url": "https://www.ina.hr/station/zagreb-ksaver/",
+      "lat": "45.833359",
+      "lng": "15.978234",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
+      ]
+    },
+    {
+      "name": "Zagreb-Langov trg",
+      "url": "https://www.ina.hr/station/zagreb-langov-trg/",
+      "lat": "45.814559",
+      "lng": "15.9817",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
+      ]
+    },
+    {
+      "name": "Zagreb-Miramarska",
+      "url": "https://www.ina.hr/station/zagreb-miramarska/",
+      "lat": "45.801646",
+      "lng": "15.974539",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
+      ]
+    },
+    {
+      "name": "Zagreb-Resnik",
+      "url": "https://www.ina.hr/station/zagreb-resnik/",
+      "lat": "45.801168",
+      "lng": "16.058524",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Zagreb-Selska",
+      "url": "https://www.ina.hr/station/zagreb-selska/",
+      "lat": "45.799642",
+      "lng": "15.943052",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
+      ]
+    },
+    {
+      "name": "Zagreb-Stupnik-zapad",
+      "url": "https://www.ina.hr/station/zagreb-stupnik-zapad/",
+      "lat": "45.771534",
+      "lng": "15.936342",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Zagreb-Špansko",
+      "url": "https://www.ina.hr/station/zagreb-spansko/",
+      "lat": "45.797142",
+      "lng": "15.897138",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
+      ]
+    }
+  ],
+  "diesel": [
+    {
+      "name": "Biograd na Moru-obala",
+      "url": "https://www.ina.hr/station/biograd-na-moru-obala/",
+      "lat": "43.938762",
+      "lng": "15.43982",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Bol",
+      "url": "https://www.ina.hr/station/bol/",
+      "lat": "43.260436",
+      "lng": "16.654488",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "name": "Cres-marina",
+      "url": "https://www.ina.hr/station/cres-marina/",
+      "lat": "44.9509102514",
+      "lng": "14.4146582795",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31",
+        "2026-04-01"
+      ]
+    },
+    {
+      "name": "Hvar",
+      "url": "https://www.ina.hr/station/hvar/",
+      "lat": "43.166225",
+      "lng": "16.445057",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30"
+      ]
+    },
+    {
+      "name": "Jezera-marina",
+      "url": "https://www.ina.hr/station/jezera-marina/",
+      "lat": "43.7843315482",
+      "lng": "15.6433358371",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Makarska-obala",
+      "url": "https://www.ina.hr/station/makarska-obala/",
+      "lat": "43.294866",
+      "lng": "17.015763",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "name": "Mali Lošinj-obala",
+      "url": "https://www.ina.hr/station/mali-losinj-obala/",
+      "lat": "44.53391",
+      "lng": "14.463354",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Milna-marina",
+      "url": "https://www.ina.hr/station/milna-marina/",
+      "lat": "43.327145",
+      "lng": "16.443256",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "name": "Novi Vinodolski – obala",
+      "url": "https://www.ina.hr/station/novi-vinodolski-obala/",
+      "lat": "45.125938",
+      "lng": "14.788325",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Opatija-grad",
+      "url": "https://www.ina.hr/station/opatija-grad/",
+      "lat": "45.332949",
+      "lng": "14.302866",
+      "dates": [
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31",
+        "2026-04-01",
+        "2026-04-02",
+        "2026-04-06",
+        "2026-04-07"
+      ]
+    },
+    {
+      "name": "Preko",
+      "url": "https://www.ina.hr/station/preko/",
+      "lat": "44.07648",
+      "lng": "15.193947",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Prokljan-jug",
+      "url": "https://www.ina.hr/station/prokljan-jug/",
+      "lat": "43.856069",
+      "lng": "15.845194",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31",
+        "2026-04-01",
+        "2026-04-02"
+      ]
+    },
+    {
+      "name": "Prokljan-sjever",
+      "url": "https://www.ina.hr/station/prokljan-sjever/",
+      "lat": "43.8563572767",
+      "lng": "15.8468319235",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31",
+        "2026-04-01"
+      ]
+    },
+    {
+      "name": "Pula-obala",
+      "url": "https://www.ina.hr/station/pula-obala/",
+      "lat": "44.8732650371",
+      "lng": "13.8474952237",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31"
+      ]
+    },
+    {
+      "name": "Rab-obala",
+      "url": "https://www.ina.hr/station/rab-obala/",
+      "lat": "44.757722",
+      "lng": "14.763417",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Rijeka-Kantrida-sjever",
+      "url": "https://www.ina.hr/station/rijeka-kantrida-sjever/",
+      "lat": "45.342058",
+      "lng": "14.371391",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30"
+      ]
+    },
+    {
+      "name": "Rijeka-Vežica",
+      "url": "https://www.ina.hr/station/rijeka-vezica/",
+      "lat": "45.325514",
+      "lng": "14.47763",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
+      ]
+    },
+    {
+      "name": "Split-obala",
+      "url": "https://www.ina.hr/station/split-obala/",
+      "lat": "43.505585",
+      "lng": "16.431548",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30"
+      ]
+    },
+    {
+      "name": "Sv. Ivan Žabno",
+      "url": "https://www.ina.hr/station/sv-ivan-zabno/",
+      "lat": "45.945419",
+      "lng": "16.606488",
+      "dates": [
+        "2026-03-10"
+      ]
+    },
+    {
+      "name": "Šibenik-obala",
+      "url": "https://www.ina.hr/station/sibenik-obala/",
+      "lat": "43.733142",
+      "lng": "15.891416",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30"
+      ]
+    },
+    {
+      "name": "Trogir-marina",
+      "url": "https://www.ina.hr/station/trogir-marina/",
+      "lat": "43.513164",
+      "lng": "16.24628",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
+      ]
+    },
+    {
+      "name": "Vodice-marina",
+      "url": "https://www.ina.hr/station/vodice-marina/",
+      "lat": "43.757314196",
+      "lng": "15.7805303403",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29"
+      ]
+    },
+    {
+      "name": "Vozilići",
+      "url": "https://www.ina.hr/station/vozilici/",
+      "lat": "45.15636",
+      "lng": "14.161327",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31",
+        "2026-04-01"
+      ]
+    },
+    {
+      "name": "Zadar-Voštarnica",
+      "url": "https://www.ina.hr/station/zadar-vostarnica/",
+      "lat": "44.118043",
+      "lng": "15.228679",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30"
+      ]
+    }
+  ]
+}
