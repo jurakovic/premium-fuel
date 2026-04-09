@@ -155,21 +155,28 @@ function mergeHistoryFull(activeStations, existingRegistry, today) {
         fs.writeFileSync(PREMIUM_DIESEL_FILE, JSON.stringify(premiumDiesel.map(s => ({ name: s.title, url: s.url, lat: s.lat, lng: s.lng })), null, 2), 'utf8');
         console.log(`${premiumDiesel.length} premium-diesel stations saved to ${PREMIUM_DIESEL_FILE}`);
 
-        const historyFull = fs.existsSync(HISTORY_FULL_FILE)
-            ? JSON.parse(fs.readFileSync(HISTORY_FULL_FILE, 'utf8'))
-            : { gasoline: [], diesel: [] };
-        historyFull.gasoline = mergeHistoryFull(premiumGasoline, historyFull.gasoline, today);
-        historyFull.diesel   = mergeHistoryFull(premiumDiesel,   historyFull.diesel,   today);
-        fs.writeFileSync(HISTORY_FULL_FILE, JSON.stringify(historyFull, null, 2), 'utf8');
-        console.log(`History-full updated for ${today}`);
-
         const history = fs.existsSync(HISTORY_FILE)
             ? JSON.parse(fs.readFileSync(HISTORY_FILE, 'utf8'))
             : [];
-        if (!history.some(h => h.date === today)) {
+        const last = history[history.length - 1];
+        const changed = !last
+            || last.gasoline !== premiumGasoline.length
+            || last.diesel   !== premiumDiesel.length;
+
+        if (changed && !history.some(h => h.date === today)) {
             history.push({ date: today, gasoline: premiumGasoline.length, diesel: premiumDiesel.length });
             fs.writeFileSync(HISTORY_FILE, JSON.stringify(history, null, 2), 'utf8');
             console.log(`History updated: ${today} gasoline=${premiumGasoline.length} diesel=${premiumDiesel.length}`);
+
+            const historyFull = fs.existsSync(HISTORY_FULL_FILE)
+                ? JSON.parse(fs.readFileSync(HISTORY_FULL_FILE, 'utf8'))
+                : { gasoline: [], diesel: [] };
+            historyFull.gasoline = mergeHistoryFull(premiumGasoline, historyFull.gasoline, today);
+            historyFull.diesel   = mergeHistoryFull(premiumDiesel,   historyFull.diesel,   today);
+            fs.writeFileSync(HISTORY_FULL_FILE, JSON.stringify(historyFull, null, 2), 'utf8');
+            console.log(`History-full updated for ${today}`);
+        } else if (!changed) {
+            console.log(`No changes since ${last.date}, skipping history update`);
         }
     } catch (err) {
         console.error(err.message);
