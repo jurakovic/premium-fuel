@@ -162,6 +162,33 @@
     #trend-details[open] summary { border-bottom: none; border-radius: 4px 4px 0 0; }
     #trend-chart { border: 1px solid var(--border); border-top: none; border-radius: 0 0 4px 4px; padding: 6px 6px 2px; }
     #trend-svg { display: block; overflow: visible; }
+    #snapshot-banner {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      background: var(--hover-bg);
+      font-size: 0.8rem;
+      color: var(--text);
+      flex-shrink: 0;
+    }
+    #snapshot-banner.visible { display: flex; }
+    #snapshot-reset {
+      background: none;
+      border: 1px solid var(--accent);
+      border-radius: 3px;
+      color: var(--accent);
+      cursor: pointer;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    #snapshot-reset:hover { background: var(--accent); color: var(--list-bg); }
     #trend-tip {
       display: none;
       position: fixed;
@@ -420,6 +447,7 @@
         <summary id="trend-summary">Trend</summary>
         <div id="trend-chart"><svg id="trend-svg" width="100%" xmlns="http://www.w3.org/2000/svg"></svg></div>
       </details>
+      <div id="snapshot-banner"><span id="snapshot-label"></span><button id="snapshot-reset">✕</button></div>
       <input id="filter" type="search" />
       <ul id="station-list"></ul>
       <footer>
@@ -500,9 +528,11 @@
     let lang      = localStorage.getItem('lang')      || 'hr';
     let fuelType  = localStorage.getItem('fuelType')  || 'gasoline';
     let theme     = localStorage.getItem('theme')     || 'system';
-    let stationsData = [];
+    let allStations = [];      // all-time registry (with dates[])
+    let stationsData = [];     // currently displayed subset
     let markers = [];
     let activeIndex = -1;
+    let snapshotDate = null;   // null = show current (latest date)
 
     const map = L.map('map', { zoomControl: false }).setView([45.1, 16.4], 7);
     L.control.zoom({ position: 'topright' }).addTo(map);
@@ -650,22 +680,51 @@
       });
     });
 
+    function applySnapshot(date) {
+      snapshotDate = date;
+      if (date === null) {
+        const latestDate = historyData.length > 0
+          ? historyData[historyData.length - 1].date
+          : allStations.reduce((max, s) => s.dates.length && s.dates[s.dates.length - 1] > max ? s.dates[s.dates.length - 1] : max, '');
+        stationsData = allStations.filter(s => s.dates.includes(latestDate));
+      } else {
+        stationsData = allStations.filter(s => s.dates.includes(date));
+      }
+
+      const banner = document.getElementById('snapshot-banner');
+      const label = document.getElementById('snapshot-label');
+      if (date === null) {
+        banner.classList.remove('visible');
+      } else {
+        const d = date;
+        label.textContent = `${d.slice(8)}.${d.slice(5, 7)}.${d.slice(0, 4)} — ${stationsData.length} postaja`;
+        banner.classList.add('visible');
+      }
+
+      document.getElementById('filter').value = '';
+      buildMarkers();
+      buildList();
+      applyLang();
+      if (stationsData.length > 0) {
+        const bounds = L.latLngBounds(stationsData.map(s => [parseFloat(s.lat), parseFloat(s.lng)]));
+        map.fitBounds(bounds, { padding: [40, 40] });
+      }
+    }
+
+    document.getElementById('snapshot-reset').addEventListener('click', () => applySnapshot(null));
+
     function loadFuel(type) {
       fuelType = type;
       localStorage.setItem('fuelType', type);
+      snapshotDate = null;
+      document.getElementById('snapshot-banner').classList.remove('visible');
       document.getElementById('filter').value = '';
       renderTrend();
       fetch(`premium-${type}.json`)
         .then(r => r.json())
         .then(data => {
-          stationsData = data;
-          buildMarkers();
-          buildList();
-          applyLang();
-          if (data.length > 0) {
-            const bounds = L.latLngBounds(data.map(s => [parseFloat(s.lat), parseFloat(s.lng)]));
-            map.fitBounds(bounds, { padding: [40, 40] });
-          }
+          allStations = data;
+          applySnapshot(null);
         })
         .catch(err => {
           document.getElementById('list-heading').textContent = 'Error loading data: ' + err.message;
@@ -732,7 +791,7 @@
 
       svg.querySelectorAll('circle[data-i]').forEach(circle => {
         const i = parseInt(circle.getAttribute('data-i'));
-        circle.style.cursor = 'default';
+        circle.style.cursor = 'pointer';
         circle.addEventListener('mouseenter', e => {
           const d = data[i].date; tip.textContent = `${d.slice(8)}.${d.slice(5, 7)}.${d.slice(0, 4)}: ${counts[i]}`;
           tip.style.display = 'block';
@@ -744,6 +803,10 @@
           tip.style.top = (e.clientY - 36) + 'px';
         });
         circle.addEventListener('mouseleave', () => { tip.style.display = 'none'; });
+        circle.addEventListener('click', () => {
+          tip.style.display = 'none';
+          applySnapshot(data[i].date);
+        });
       });
     }
 
