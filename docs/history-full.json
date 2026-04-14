@@ -59,6 +59,16 @@
       ]
     },
     {
+      "name": "Čakovec-Zrinsko-Frankopanska",
+      "url": "https://www.ina.hr/station/cakovec-zrinsko-frankopanska/",
+      "lat": "46.387849",
+      "lng": "16.41593",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
+      ]
+    },
+    {
       "name": "Cres-marina",
       "url": "https://www.ina.hr/station/cres-marina/",
       "lat": "44.9509102514",
@@ -70,16 +80,6 @@
         "2026-03-30",
         "2026-03-31",
         "2026-04-01"
-      ]
-    },
-    {
-      "name": "Čakovec-Zrinsko-Frankopanska",
-      "url": "https://www.ina.hr/station/cakovec-zrinsko-frankopanska/",
-      "lat": "46.387849",
-      "lng": "16.41593",
-      "dates": [
-        "2026-03-10",
-        "2026-03-19"
       ]
     },
     {
@@ -427,16 +427,6 @@
       ]
     },
     {
-      "name": "Rastovica",
-      "url": "https://www.ina.hr/station/rastovica/",
-      "lat": "45.109345",
-      "lng": "18.685543",
-      "dates": [
-        "2026-03-10",
-        "2026-03-19"
-      ]
-    },
-    {
       "name": "Rašćane Gornje",
       "url": "https://www.ina.hr/station/rascane-gornje/",
       "lat": "43.3211725078",
@@ -445,6 +435,16 @@
         "2026-03-10",
         "2026-03-19",
         "2026-03-29"
+      ]
+    },
+    {
+      "name": "Rastovica",
+      "url": "https://www.ina.hr/station/rastovica/",
+      "lat": "45.109345",
+      "lng": "18.685543",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
       ]
     },
     {
@@ -467,6 +467,31 @@
         "2026-03-10",
         "2026-03-19",
         "2026-03-29"
+      ]
+    },
+    {
+      "name": "Šibenik-obala",
+      "url": "https://www.ina.hr/station/sibenik-obala/",
+      "lat": "43.733142",
+      "lng": "15.891416",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30"
+      ]
+    },
+    {
+      "name": "Šibenik-Ražine-zapad",
+      "url": "https://www.ina.hr/station/sibenik-razine-zapad/",
+      "lat": "43.711067",
+      "lng": "15.912469",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31"
       ]
     },
     {
@@ -607,31 +632,6 @@
       "url": "https://www.ina.hr/station/sveta-nedelja/",
       "lat": "45.796924",
       "lng": "15.763031",
-      "dates": [
-        "2026-03-10",
-        "2026-03-19",
-        "2026-03-29",
-        "2026-03-30",
-        "2026-03-31"
-      ]
-    },
-    {
-      "name": "Šibenik-obala",
-      "url": "https://www.ina.hr/station/sibenik-obala/",
-      "lat": "43.733142",
-      "lng": "15.891416",
-      "dates": [
-        "2026-03-10",
-        "2026-03-19",
-        "2026-03-29",
-        "2026-03-30"
-      ]
-    },
-    {
-      "name": "Šibenik-Ražine-zapad",
-      "url": "https://www.ina.hr/station/sibenik-razine-zapad/",
-      "lat": "43.711067",
-      "lng": "15.912469",
       "dates": [
         "2026-03-10",
         "2026-03-19",
@@ -802,6 +802,16 @@
       ]
     },
     {
+      "name": "Zagreb-Špansko",
+      "url": "https://www.ina.hr/station/zagreb-spansko/",
+      "lat": "45.797142",
+      "lng": "15.897138",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19"
+      ]
+    },
+    {
       "name": "Zagreb-Stupnik-zapad",
       "url": "https://www.ina.hr/station/zagreb-stupnik-zapad/",
       "lat": "45.771534",
@@ -810,16 +820,6 @@
         "2026-03-10",
         "2026-03-19",
         "2026-03-29"
-      ]
-    },
-    {
-      "name": "Zagreb-Špansko",
-      "url": "https://www.ina.hr/station/zagreb-spansko/",
-      "lat": "45.797142",
-      "lng": "15.897138",
-      "dates": [
-        "2026-03-10",
-        "2026-03-19"
       ]
     }
   ],
@@ -1036,6 +1036,18 @@
       ]
     },
     {
+      "name": "Šibenik-obala",
+      "url": "https://www.ina.hr/station/sibenik-obala/",
+      "lat": "43.733142",
+      "lng": "15.891416",
+      "dates": [
+        "2026-03-10",
+        "2026-03-19",
+        "2026-03-29",
+        "2026-03-30"
+      ]
+    },
+    {
       "name": "Split-obala",
       "url": "https://www.ina.hr/station/split-obala/",
       "lat": "43.505585",
@@ -1054,18 +1066,6 @@
       "lng": "16.606488",
       "dates": [
         "2026-03-10"
-      ]
-    },
-    {
-      "name": "Šibenik-obala",
-      "url": "https://www.ina.hr/station/sibenik-obala/",
-      "lat": "43.733142",
-      "lng": "15.891416",
-      "dates": [
-        "2026-03-10",
-        "2026-03-19",
-        "2026-03-29",
-        "2026-03-30"
       ]
     },
     {
