@@ -1036,6 +1036,15 @@
       ]
     },
     {
+      "name": "Rovinj-Istarska",
+      "url": "https://www.ina.hr/station/rovinj-istarska/",
+      "lat": "45.079799",
+      "lng": "13.653673",
+      "dates": [
+        "2026-05-01"
+      ]
+    },
+    {
       "name": "Šibenik-obala",
       "url": "https://www.ina.hr/station/sibenik-obala/",
       "lat": "43.733142",
