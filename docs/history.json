@@ -63,5 +63,10 @@
     "date": "2026-05-11",
     "gasoline": 0,
     "diesel": 0
+  },
+  {
+    "date": "2026-05-21",
+    "gasoline": 0,
+    "diesel": 1
   }
 ]

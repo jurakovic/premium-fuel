@@ -1113,6 +1113,15 @@
       ]
     },
     {
+      "name": "Vrhovine",
+      "url": "https://www.ina.hr/station/vrhovine/",
+      "lat": "44.849337",
+      "lng": "15.432727",
+      "dates": [
+        "2026-05-21"
+      ]
+    },
+    {
       "name": "Zadar-Voštarnica",
       "url": "https://www.ina.hr/station/zadar-vostarnica/",
       "lat": "44.118043",
