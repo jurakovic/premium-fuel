@@ -3512,6 +3512,28 @@
     "url": "https://www.ina.hr/station/jurdani/"
   },
   {
+    "title": "Jurovski Brod",
+    "id": 70470,
+    "lat": "",
+    "lng": "",
+    "direction": [],
+    "fuel": [
+      "1002498",
+      "1002840",
+      "1002835"
+    ],
+    "services": [
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
+      }
+    ],
+    "city": "",
+    "address": "Jurovski Brod 14",
+    "contact_phone": "",
+    "url": "https://www.ina.hr/station/jurovski-brod/"
+  },
+  {
     "title": "Kaldanija",
     "id": 658,
     "lat": "45.451705",
@@ -7234,8 +7256,8 @@
         "label": "Plin u bocama"
       },
       {
-        "value": "APraona",
-        "label": "Autopraonica"
+        "value": "SPraona",
+        "label": "Samouslužno pranje vozila"
       },
       {
         "value": "Roba",
