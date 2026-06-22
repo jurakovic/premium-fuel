@@ -12,13 +12,13 @@ Filtered results are written to `docs/premium-gasoline.json` and `docs/premium-d
 ```bash
 docker run -it --rm --entrypoint sh -v "$(pwd):/premium-fuel" node:24-alpine
 cd premium-fuel
-npm install
+npm ci --ignore-scripts
 node parse.js
 ```
 
 **Directly (Node 24+):**
 ```bash
-npm install
+npm ci --ignore-scripts
 node parse.js
 ```
 

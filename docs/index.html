@@ -747,16 +747,16 @@
     fuelSelect.value = fuelType;
     fuelSelect.addEventListener('change', e => loadFuel(e.target.value));
 
-    let historyData = [];
+    let historyData = { gasoline: [], diesel: [] };
 
     function renderTrend() {
       const svg = document.getElementById('trend-svg');
       const summary = document.getElementById('trend-summary');
       const tip = document.getElementById('trend-tip');
-      const data = historyData;
+      const data = historyData[fuelType] || [];
       if (!data || data.length < 2) { svg.removeAttribute('viewBox'); svg.innerHTML = ''; return; }
 
-      const counts = data.map(d => d[fuelType]);
+      const counts = data.map(d => d.count);
       const n = counts.length;
       const maxV = Math.max(...counts, 1);
 

@@ -117,6 +117,35 @@ function mergeHistoryFull(activeStations, existingRegistry, today) {
     return [...registry.values()].sort((a, b) => a.name.localeCompare(b.name));
 }
 
+// Set of station URLs that were active on a given date, from the history-full registry
+function stationsAtDate(registry, date) {
+    return new Set(registry.filter(s => s.dates.includes(date)).map(s => s.url));
+}
+
+function sameSet(a, b) {
+    if (a.size !== b.size) return false;
+    for (const x of a) if (!b.has(x)) return false;
+    return true;
+}
+
+// Append a trend point for one fuel type only if its station set changed since the
+// last stored point. Returns true if a point was added (and history-full was merged).
+function updateFuelHistory(fuelKey, activeStations, history, historyFull, today) {
+    const series = history[fuelKey];
+    const last = series[series.length - 1];
+
+    if (last && last.date === today) return false; // already recorded today
+
+    const currentSet = new Set(activeStations.map(s => s.url));
+    const lastSet = last ? stationsAtDate(historyFull[fuelKey], last.date) : null;
+
+    if (lastSet && sameSet(currentSet, lastSet)) return false; // no change
+
+    series.push({ date: today, count: activeStations.length });
+    historyFull[fuelKey] = mergeHistoryFull(activeStations, historyFull[fuelKey], today);
+    return true;
+}
+
 (async () => {
     try {
         const html = await ensureHtml();
@@ -157,26 +186,24 @@ function mergeHistoryFull(activeStations, existingRegistry, today) {
 
         const history = fs.existsSync(HISTORY_FILE)
             ? JSON.parse(fs.readFileSync(HISTORY_FILE, 'utf8'))
-            : [];
-        const last = history[history.length - 1];
-        const changed = !last
-            || last.gasoline !== premiumGasoline.length
-            || last.diesel   !== premiumDiesel.length;
+            : { gasoline: [], diesel: [] };
+        const historyFull = fs.existsSync(HISTORY_FULL_FILE)
+            ? JSON.parse(fs.readFileSync(HISTORY_FULL_FILE, 'utf8'))
+            : { gasoline: [], diesel: [] };
 
-        if (changed && !history.some(h => h.date === today)) {
-            history.push({ date: today, gasoline: premiumGasoline.length, diesel: premiumDiesel.length });
+        // A trend point is stored per fuel type only when its set of stations changed
+        // since the last stored point (this also collapses consecutive zeros into one).
+        const gasolineChanged = updateFuelHistory('gasoline', premiumGasoline, history, historyFull, today);
+        const dieselChanged   = updateFuelHistory('diesel',   premiumDiesel,   history, historyFull, today);
+
+        if (gasolineChanged || dieselChanged) {
             fs.writeFileSync(HISTORY_FILE, JSON.stringify(history, null, 2), 'utf8');
-            console.log(`History updated: ${today} gasoline=${premiumGasoline.length} diesel=${premiumDiesel.length}`);
-
-            const historyFull = fs.existsSync(HISTORY_FULL_FILE)
-                ? JSON.parse(fs.readFileSync(HISTORY_FULL_FILE, 'utf8'))
-                : { gasoline: [], diesel: [] };
-            historyFull.gasoline = mergeHistoryFull(premiumGasoline, historyFull.gasoline, today);
-            historyFull.diesel   = mergeHistoryFull(premiumDiesel,   historyFull.diesel,   today);
             fs.writeFileSync(HISTORY_FULL_FILE, JSON.stringify(historyFull, null, 2), 'utf8');
-            console.log(`History-full updated for ${today}`);
-        } else if (!changed) {
-            console.log(`No changes since ${last.date}, skipping history update`);
+            console.log(`History updated for ${today}:`
+                + ` gasoline ${gasolineChanged ? `→ ${premiumGasoline.length}` : 'unchanged'},`
+                + ` diesel ${dieselChanged ? `→ ${premiumDiesel.length}` : 'unchanged'}`);
+        } else {
+            console.log(`No changes for ${today}, skipping history update`);
         }
     } catch (err) {
         console.error(err.message);
