@@ -686,7 +686,14 @@
       infoDialog.showModal();
     });
     infoDialog.addEventListener('click', e => {
-      if (e.target === infoDialog) infoDialog.close();
+      // Close only when the click is on the backdrop, i.e. outside the dialog's
+      // box. Comparing e.target to the dialog also matches clicks on its own
+      // padding/whitespace, so check the actual click coordinates instead.
+      if (e.target !== infoDialog) return;
+      const r = infoDialog.getBoundingClientRect();
+      const inside = e.clientX >= r.left && e.clientX <= r.right
+                  && e.clientY >= r.top  && e.clientY <= r.bottom;
+      if (!inside) infoDialog.close();
     });
 
     document.getElementById('filter').addEventListener('input', e => {
