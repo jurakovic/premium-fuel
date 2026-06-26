@@ -4653,9 +4653,7 @@
     "lat": "45.02443",
     "lng": "14.57047",
     "direction": [],
-    "fuel": [
-      "1002498"
-    ],
+    "fuel": [],
     "services": [
       {
         "value": "Plovila",
