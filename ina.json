@@ -977,6 +977,35 @@
     "url": "https://www.ina.hr/station/caglin/"
   },
   {
+    "title": "Čakovec – obilaznica",
+    "id": 70804,
+    "lat": "46.37941",
+    "lng": "16.41050",
+    "direction": [],
+    "fuel": [
+      "1002212",
+      "1000620",
+      "1000340",
+      "1002498",
+      "1002840",
+      "1002835"
+    ],
+    "services": [
+      {
+        "value": "UNP",
+        "label": "Plin u bocama"
+      },
+      {
+        "value": "Fresh",
+        "label": "Fresh Corner"
+      }
+    ],
+    "city": "",
+    "address": "Ul. dr. Tome Bratkovića 1b",
+    "contact_phone": "",
+    "url": "https://www.ina.hr/station/cakovec-obilaznica/"
+  },
+  {
     "title": "Čakovec-Novakova",
     "id": 493,
     "lat": "46.3847614366",
@@ -1279,7 +1308,6 @@
     "lng": "14.4146582795",
     "direction": [],
     "fuel": [
-      "1000340",
       "1002498",
       "1002840"
     ],
@@ -1349,12 +1377,7 @@
     "lat": "45.171263",
     "lng": "14.692325",
     "direction": [],
-    "fuel": [
-      "1000340",
-      "1002498",
-      "1002840",
-      "1002835"
-    ],
+    "fuel": [],
     "services": [
       {
         "value": "UNP",
@@ -10397,7 +10420,7 @@
     "lng": "16.293179",
     "direction": [],
     "fuel": [
-      "1000340",
+      "1002498",
       "1002840"
     ],
     "services": [
