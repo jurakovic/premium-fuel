@@ -198,6 +198,15 @@
       ]
     },
     {
+      "name": "Krk-obala",
+      "url": "https://www.ina.hr/station/krk-obala/",
+      "lat": "45.02443",
+      "lng": "14.57047",
+      "dates": [
+        "2026-07-03"
+      ]
+    },
+    {
       "name": "Kupari",
       "url": "https://www.ina.hr/station/kupari/",
       "lat": "42.6234891829",
