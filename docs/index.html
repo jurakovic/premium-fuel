@@ -243,6 +243,17 @@
     #station-list li:hover { background: var(--hover-bg); }
     #station-list li.active { background: var(--active-bg); }
 
+    #station-list li.empty {
+      display: block;
+      padding: 16px 14px;
+      text-align: center;
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+      cursor: default;
+    }
+    #station-list li.empty:hover { background: none; }
+
     #station-list li .name { font-weight: 500; font-size: 0.875rem; }
 
     #station-list li a {
@@ -326,6 +337,21 @@
       padding: 4px 8px;
     }
     #info-close:hover { color: var(--text); background: var(--hover-bg); }
+    #info-dialog section { break-inside: avoid; }
+
+    /* Desktop: a wide, two-column dialog reads better than a narrow, scrolling
+       one. Below 701px the full-screen mobile layout below takes over. */
+    @media (min-width: 701px) {
+      #info-dialog {
+        max-width: 1040px;
+        padding: 28px 32px;
+      }
+      #info-dialog h2 { column-span: all; }
+      #info-dialog .info-content {
+        columns: 2;
+        column-gap: 40px;
+      }
+    }
 
     @media (max-width: 700px) {
       #info-dialog {
@@ -461,19 +487,76 @@
 
     <dialog id="info-dialog">
       <button id="info-close" onclick="document.getElementById('info-dialog').close()" title="Zatvori">&#x2715;</button>
-      <h2>Zašto Vlada regulira cijene goriva?</h2>
-      <h3>2022. – Rat u Ukrajini i početak regulacije</h3>
-      <p>Nakon ruske invazije na Ukrajinu 2022. godine, cijene energenata u Europi naglo su porasle. Hrvatska vlada reagirala je uredbom o regulaciji maloprodajnih cijena naftnih derivata, kojom je uvela maksimalne maloprodajne cijene za osnovna goriva – Eurosuper 95 i Eurodiesel. Cijene su se mijenjale svakih 14 dana, a uredba se višestruko produžavala.</p>
-      <h3>Srpanj 2025. – Deregulacija</h3>
-      <p>Nakon gotovo tri godine državne regulacije, Vlada je u srpnju 2025. ukinula uredbu jer su se globalna tržišta stabilizirala. Distributeri poput INE, Croduxa i Tifona od tada su samostalno određivali maloprodajne cijene.</p>
-      <h3>Ožujak 2026. – Nova kriza, nova regulacija</h3>
-      <p>Zbog eskalacije sukoba na Bliskom istoku i poremećaja u opskrbi naftom, cijene goriva naglo su porasle. Vlada je ponovo uvela regulaciju kako bi zaštitila građane od punog tržišnog udara.</p>
-      <h3>Što je regulirano, a što nije?</h3>
-      <p>Uredba obuhvaća isključivo osnovna goriva. Premium varijante – Eurosuper 95 Class Plus Premium i Eurodiesel Class Plus Premium – nisu izravno regulirane i mogu se prodavati po tržišnoj cijeni.</p>
-      <h3>Gdje nastaje pogodnost za vozače?</h3>
-      <p>Ako postaja prodaje isključivo premium gorivo, bez dostupnosti osnovne regulirane varijante, mora ga prodavati po reguliranoj cijeni – jer kupci moraju imati pristup gorivu obuhvaćenom uredbom. Na takvim postajama vozači mogu točiti premium gorivo po cijeni redovnog.</p>
-      <h3>Ova stranica</h3>
-      <p>Prikazuje INA postaje koje prodaju isključivo premium gorivo, gdje se navedena pogodnost primjenjuje. Podaci se automatski osvježavaju svaki dan iz INA tražilice postaja.</p>
+      <div class="info-content" data-lang="hr">
+        <h2>Zašto Vlada regulira cijene goriva?</h2>
+        <section>
+          <h3>2022. – Rat u Ukrajini i početak regulacije</h3>
+          <p>Nakon ruske invazije na Ukrajinu 2022. godine, cijene energenata u Europi naglo su porasle. Hrvatska vlada reagirala je uredbom o regulaciji maloprodajnih cijena naftnih derivata, kojom je uvela maksimalne maloprodajne cijene za osnovna goriva – Eurosuper 95 i Eurodiesel. Cijene su se mijenjale svakih 14 dana, a uredba se višestruko produžavala.</p>
+        </section>
+        <section>
+          <h3>Srpanj 2025. – Deregulacija</h3>
+          <p>Nakon gotovo tri godine državne regulacije, Vlada je u srpnju 2025. ukinula uredbu jer su se globalna tržišta stabilizirala. Distributeri poput INE, Croduxa i Tifona od tada su samostalno određivali maloprodajne cijene.</p>
+        </section>
+        <section>
+          <h3>Ožujak 2026. – Nova kriza, nova regulacija</h3>
+          <p>Zbog eskalacije sukoba na Bliskom istoku i poremećaja u opskrbi naftom, cijene goriva naglo su porasle. Vlada je 9. ožujka 2026. ponovo uvela regulaciju kako bi zaštitila građane od punog tržišnog udara. Uredba je od tada neprekidno na snazi.</p>
+        </section>
+        <section>
+          <h3>Rujan 2026. – Blaži režim</h3>
+          <p>Tijekom proljeća i ljeta Vlada je najviše cijene određivala svakih sedam dana, a od 9. rujna 2026. vratila se na uobičajeni četrnaestodnevni ciklus, uz snižene premije za benzin, dizel i plavi dizel. Regulacija je i dalje na snazi, ali je tržište mirnije.</p>
+        </section>
+        <section>
+          <h3>Što je regulirano, a što nije?</h3>
+          <p>Uredba obuhvaća osnovna goriva – Eurosuper 95, Eurodiesel, plavi dizel te UNP u bocama i spremnicima. Premium varijante – Eurosuper 95 Class Plus Premium i Eurodiesel Class Plus Premium – kao i benzini s višim oktanskim brojem nisu regulirani i mogu se prodavati po tržišnoj cijeni.</p>
+        </section>
+        <section>
+          <h3>Gdje nastaje pogodnost za vozače?</h3>
+          <p>Ako postaja prodaje isključivo premium gorivo, bez dostupnosti osnovne regulirane varijante, mora ga prodavati po reguliranoj cijeni – jer kupci moraju imati pristup gorivu obuhvaćenom uredbom. Na takvim postajama vozači mogu točiti premium gorivo po cijeni redovnog.</p>
+        </section>
+        <section>
+          <h3>Trenutno stanje</h3>
+          <p>INA je tijekom srpnja 2026. vratila osnovne varijante goriva na gotovo cijelu svoju mrežu, pa trenutno nema postaja koje prodaju isključivo premium gorivo i karta je prazna. Pogodnost i dalje postoji u uredbi, samo je nema gdje iskoristiti – pojavi li se opet takva postaja, ovdje će biti prikazana.</p>
+        </section>
+        <section>
+          <h3>Ova stranica</h3>
+          <p>Prikazuje INA postaje koje prodaju isključivo premium gorivo, gdje se navedena pogodnost primjenjuje. Podaci se automatski osvježavaju svaki dan iz INA tražilice postaja, a graf „Trend“ prikazuje kretanje broja takvih postaja kroz vrijeme.</p>
+        </section>
+      </div>
+      <div class="info-content" data-lang="en" hidden>
+        <h2>Why does the Government regulate fuel prices?</h2>
+        <section>
+          <h3>2022 – War in Ukraine and the start of regulation</h3>
+          <p>After the Russian invasion of Ukraine in 2022, energy prices across Europe rose sharply. The Croatian government responded with a decree capping the retail prices of petroleum derivatives, setting maximum retail prices for the basic fuels – Eurosuper 95 and Eurodiesel. Prices changed every 14 days, and the decree was extended many times.</p>
+        </section>
+        <section>
+          <h3>July 2025 – Deregulation</h3>
+          <p>After almost three years of state regulation, the government lifted the decree in July 2025 as global markets stabilised. Distributors such as INA, Crodux and Tifon set their own retail prices from then on.</p>
+        </section>
+        <section>
+          <h3>March 2026 – New crisis, new regulation</h3>
+          <p>As the conflict in the Middle East escalated and oil supply was disrupted, fuel prices rose sharply. On 9 March 2026 the government reintroduced regulation to shield the public from the full market shock. The decree has been in force continuously since then.</p>
+        </section>
+        <section>
+          <h3>September 2026 – A lighter regime</h3>
+          <p>Through spring and summer the government set maximum prices every seven days; as of 9 September 2026 it returned to the usual fourteen-day cycle, with lower margins for petrol, diesel and blue diesel. Regulation remains in force, but the market has calmed down.</p>
+        </section>
+        <section>
+          <h3>What is regulated and what is not?</h3>
+          <p>The decree covers the basic fuels – Eurosuper 95, Eurodiesel, blue diesel and LPG in bottles and tanks. The premium variants – Eurosuper 95 Class Plus Premium and Eurodiesel Class Plus Premium – as well as higher-octane petrols are not regulated and may be sold at market prices.</p>
+        </section>
+        <section>
+          <h3>Where does the benefit for drivers come from?</h3>
+          <p>If a station sells only premium fuel, without the basic regulated variant available, it must sell it at the regulated price – because customers have to have access to a fuel covered by the decree. At such stations drivers can fill up with premium fuel at the price of the regular one.</p>
+        </section>
+        <section>
+          <h3>Current status</h3>
+          <p>During July 2026 INA restocked the basic fuel variants across virtually its entire network, so there are currently no stations selling premium fuel only and the map is empty. The benefit still exists in the decree, there is simply nowhere to use it – should such a station appear again, it will be shown here.</p>
+        </section>
+        <section>
+          <h3>About this page</h3>
+          <p>It shows the INA stations that sell premium fuel only, where the benefit described above applies. The data is refreshed automatically every day from INA's station finder, and the “Trend” chart shows how the number of such stations has changed over time.</p>
+        </section>
+      </div>
     </dialog>
     <div id="map"></div>
   </div>
@@ -489,6 +572,7 @@
         link:        'Detalji',
         toggle:      'EN',
         filter:      'Pretraži postaje…',
+        empty:       'Nema postaja koje prodaju isključivo premium gorivo.',
         gasoline:    'Eurosuper 95 Class Plus Premium',
         diesel:      'Eurodiesel Class Plus Premium',
         home:        'Početna',
@@ -503,6 +587,7 @@
         link:        'Details',
         toggle:      'HR',
         filter:      'Search stations…',
+        empty:       'No stations selling premium fuel only.',
         gasoline:    'Eurosuper 95 Class Plus Premium',
         diesel:      'Eurodiesel Class Plus Premium',
         home:        'Home',
@@ -606,6 +691,11 @@
       document.querySelectorAll('#station-list li a').forEach(a => {
         a.textContent = t.link;
       });
+      document.querySelectorAll('#info-dialog .info-content').forEach(el => {
+        el.hidden = el.dataset.lang !== lang;
+      });
+      const emptyItem = document.querySelector('#station-list li.empty');
+      if (emptyItem) emptyItem.textContent = t.empty;
     }
 
     function setActive(index) {
@@ -622,6 +712,14 @@
     function buildList() {
       const ul = document.getElementById('station-list');
       ul.innerHTML = '';
+      document.getElementById('filter').style.display = stationsData.length ? '' : 'none';
+      if (!stationsData.length) {
+        const li = document.createElement('li');
+        li.className = 'empty';
+        li.textContent = I18N[lang].empty;
+        ul.appendChild(li);
+        return;
+      }
       stationsData.forEach((s, i) => {
         const li = document.createElement('li');
         const name = document.createElement('span');
@@ -667,7 +765,7 @@
 
     // close sidebar when user taps a station on mobile
     sidebar.addEventListener('click', e => {
-      if (e.target.closest('li') && window.innerWidth <= 700) closeSidebar();
+      if (e.target.closest('li:not(.empty)') && window.innerWidth <= 700) closeSidebar();
     });
 
     document.getElementById('lang-toggle').addEventListener('click', () => {
@@ -699,6 +797,7 @@
     document.getElementById('filter').addEventListener('input', e => {
       const q = e.target.value.trim().toLowerCase();
       document.querySelectorAll('#station-list li').forEach((li, i) => {
+        if (!stationsData[i]) return;
         const match = stationsData[i].name.toLowerCase().includes(q);
         li.style.display = match ? '' : 'none';
       });

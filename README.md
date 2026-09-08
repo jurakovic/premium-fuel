@@ -18,15 +18,23 @@ Nakon gotovo tri godine državne regulacije, Vlada je u srpnju 2025. ukinula ure
 
 ### Ožujak 2026. – Nova kriza, nova regulacija
 
-Zbog eskalacije sukoba na Bliskom istoku i poremećaja u opskrbi naftom, cijene goriva naglo su porasle. Vlada je ponovo uvela regulaciju kako bi zaštitila građane od punog tržišnog udara.
+Zbog eskalacije sukoba na Bliskom istoku i poremećaja u opskrbi naftom, cijene goriva naglo su porasle. Vlada je 9. ožujka 2026. ponovo uvela regulaciju kako bi zaštitila građane od punog tržišnog udara. Uredba je od tada neprekidno na snazi.
+
+### Rujan 2026. – Blaži režim
+
+Tijekom proljeća i ljeta Vlada je najviše cijene određivala svakih sedam dana, a od 9. rujna 2026. vratila se na uobičajeni četrnaestodnevni ciklus, uz snižene premije za benzin, dizel i plavi dizel. Regulacija je i dalje na snazi, ali je tržište mirnije.
 
 ### Što je regulirano, a što nije?
 
-Uredba obuhvaća isključivo osnovna goriva. Premium varijante – Eurosuper 95 Class Plus Premium i Eurodiesel Class Plus Premium – nisu izravno regulirane i mogu se prodavati po tržišnoj cijeni.
+Uredba obuhvaća osnovna goriva – Eurosuper 95, Eurodiesel, plavi dizel te UNP u bocama i spremnicima. Premium varijante – Eurosuper 95 Class Plus Premium i Eurodiesel Class Plus Premium – kao i benzini s višim oktanskim brojem nisu regulirani i mogu se prodavati po tržišnoj cijeni.
 
 ### Gdje nastaje pogodnost za vozače?
 
 Ako postaja prodaje isključivo premium gorivo, bez dostupnosti osnovne regulirane varijante, mora ga prodavati po reguliranoj cijeni – jer kupci moraju imati pristup gorivu obuhvaćenom uredbom. Na takvim postajama vozači mogu točiti premium gorivo po cijeni redovnog.
+
+### Trenutno stanje
+
+INA je tijekom srpnja 2026. vratila osnovne varijante goriva na gotovo cijelu svoju mrežu, pa trenutno nema postaja koje prodaju isključivo premium gorivo i karta je prazna. Pogodnost i dalje postoji u uredbi, samo je nema gdje iskoristiti – pojavi li se opet takva postaja, bit će prikazana.
 
 ---
 
