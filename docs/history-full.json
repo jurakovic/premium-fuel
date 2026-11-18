@@ -83,6 +83,15 @@
       ]
     },
     {
+      "name": "Desinec",
+      "url": "https://www.ina.hr/station/desinec/",
+      "lat": "45.686186",
+      "lng": "15.707574",
+      "dates": [
+        "2026-11-18"
+      ]
+    },
+    {
       "name": "Donji Miholjac-jug",
       "url": "https://www.ina.hr/station/donji-miholjac-jug/",
       "lat": "45.759903341",
