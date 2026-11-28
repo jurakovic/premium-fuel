@@ -854,6 +854,15 @@
       ]
     },
     {
+      "name": "Bjelovar-grad",
+      "url": "https://www.ina.hr/station/bjelovar-grad/",
+      "lat": "45.900773",
+      "lng": "16.838569",
+      "dates": [
+        "2026-11-28"
+      ]
+    },
+    {
       "name": "Bol",
       "url": "https://www.ina.hr/station/bol/",
       "lat": "43.260436",
